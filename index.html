@@ -1265,60 +1265,383 @@
 </style>
 <script>
 const i18n = {
-  // 导航
-  nav_course: { zh: 'Curriculum', en: 'Curriculum' },
-  nav_schedule: { zh: 'Course表', en: 'Schedule' },
-  nav_students: { zh: 'Student Stories', en: 'Students' },
-  nav_comp: { zh: 'Comp现场', en: 'Competitions' },
-  nav_enroll: { zh: '立即Enroll', en: 'Enroll Now' },
+  // Navigation
+  nav_course: { zh: '课程体系', en: 'Curriculum' },
+  nav_schedule: { zh: '课程表', en: 'Schedule' },
+  nav_students: { zh: '学生故事', en: 'Students' },
+  nav_comp: { zh: '竞赛现场', en: 'Competitions' },
+  nav_enroll: { zh: '立即报名', en: 'Enroll Now' },
 
   // Hero
   hero_badge: { zh: '🎓 MAGIKID 2026 精英计划', en: '🎓 MAGIKID 2026 Elite Program' },
-  hero_title: { zh: 'MAGIKID AI Comp班', en: 'MAGIKID AI Competition Class' },
+  hero_badge_sub: { zh: '🏆 AI 精英竞赛项目', en: '🏆 AI Elite Competition Program' },
+  hero_title: { zh: 'MAGIKID AI 竞赛班', en: 'MAGIKID AI Competition Class' },
+  hero_sub: { zh: 'Your Path to Ivy League & Stanford via AI Competition', en: 'Your Path to Ivy League & Stanford via AI Competition' },
+  hero_sub_p: {
+    zh: '36×5 课时 · 从零到赛场 · <em>理论 + 竞赛 + 科研</em><br>每个孩子都能站上<em>国际 AI 竞赛舞台</em>',
+    en: '36×5 Classes · Zero to Stage · <em>Theory + Competition + Research</em><br>Every child can stand on the <em>International AI Competition Stage</em>'
+  },
   hero_sub: { zh: 'Your Path to Ivy League & Stanford via AI Competition', en: 'Your Path to Ivy League & Stanford via AI Competition' },
   hero_desc: { zh: '培养下一代AI领袖，从这里开始', en: 'Cultivating Next-Gen AI Leaders' },
-  hero_cta: { zh: '开启AI之旅', en: 'Start Your AI Journey' },
+  hero_cta: { zh: '🚀 开启AI之旅', en: '🚀 Start Your AI Journey' },
   hero_stats_students: { zh: 'Elite Students', en: 'Elite Students' },
   hero_stats_medals: { zh: 'Intl Medals', en: 'Intl Medals' },
   hero_stats_top: { zh: 'Top Admissions', en: 'Top Admissions' },
   hero_stats_nasa: { zh: 'NASA Challenges', en: 'NASA Challenges' },
 
+  // Intro banner
+  intro_h2: {
+    zh: 'MAGIKID 独家 AI Robotics 课程，<br>培养<span class="highlight-cyan">卓越顶尖</span>的 AI Robotics 人才',
+    en: 'MAGIKID Exclusive AI Robotics Courses,<br>Cultivating <span class="highlight-cyan">World-Class</span> AI Robotics Talent'
+  },
+  intro_desc: {
+    zh: '2026 年课程升级，不仅对标 <strong style="color:var(--gold)">IOAI（人工智能奥林匹克）</strong>，更是一场面向全球 AI 黑客松与尖端机器人赛事的进阶之旅。我们紧跟技术浪潮，实时集成 <strong style="color:var(--cyan)">Generative AI（生成式AI）</strong>、<strong style="color:#CE93D8">Transformer 架构</strong>与<strong style="color:var(--gold)">ROS 机器人操作系统</strong>等前沿科技。',
+    en: 'The 2026 curriculum upgrade targets not only <strong style="color:var(--gold)">IOAI (International AI Olympiad)</strong>, but also global AI hackathons and cutting-edge robotics competitions. We stay ahead of the tech wave, integrating <strong style="color:var(--cyan)">Generative AI</strong>, <strong style="color:#CE93D8">Transformer architecture</strong>, and <strong style="color:var(--gold)">ROS Robotics OS</strong>.'
+  },
+
+  // Stats
+  stat_ivy: { zh: '藤校/顶尖大学合办赛事', en: 'Ivy League / Top University Co-hosted Events' },
+  stat_course: { zh: '课程体系', en: 'Curriculum System' },
+  stat1_label: { zh: '顶级国际竞赛', en: 'Top International Competitions' },
+  stat3_label: { zh: '覆盖年龄段', en: 'Age Coverage' },
+  stat5_label: { zh: '每节课时长', en: 'Per Class Duration' },
+
+  // Overview pillars
+  overview_tag: { zh: '项目概览', en: 'Program Overview' },
+  overview_title: { zh: 'AI Olympia <span>36×5 课程体系</span>', en: 'AI Olympia <span>36×5 Curriculum System</span>' },
+  overview_desc: { zh: '专注于理论学习、算法实现与项目实践——每节 90 分钟，每阶段 12 节课。', en: 'Focused on Theory, Algorithm Implementation & Project Practice - 90min per class, 12 classes per stage.' },
+  pillar1_title: { zh: 'Python 算法逻辑', en: 'Python Algorithm Logic' },
+  pillar1_desc: { zh: '从基础语法到高级算法思维，建立扎实的编程基础与问题解决能力。', en: 'From basic syntax to advanced algorithmic thinking, building solid programming foundation and problem-solving skills.' },
+  pillar2_title: { zh: 'PyTorch 深度学习架构', en: 'PyTorch Deep Learning Architecture' },
+  pillar2_desc: {
+    zh: '掌握神经网络核心架构，从 CNN 到 Transformer，实现前沿 AI 模型。',
+    en: 'Master core neural network architectures, from CNN to Transformer, implementing cutting-edge AI models.'
+  },
+  pillar3_title: { zh: '模型调优与工程化', en: 'Model Tuning & Engineering' },
+  pillar3_desc: { zh: '针对复杂数据集的模型优化、软硬件集成，从实验室走向真实应用场景。', en: 'Model optimization for complex datasets, software-hardware integration, from lab to real-world scenarios.' },
+  outcome_title: { zh: '🎯 培养目标', en: '🎯 Training Goals' },
+  outcome_desc: {
+    zh: '通过<strong>"理论学习+模拟竞技+独立科研"</strong>三位一体的模式，<br>我们致力于将学生塑造为具备<strong>多模态感知、算法创新力与国际竞争视野</strong>的未来科技领袖，<br>助其在<strong>顶级名校申请</strong>与<strong>全球科技舞台</strong>中脱颖而出。',
+    en: 'Through the <strong>"Theory + Simulated Competition + Independent Research"</strong> trinity,<br>we develop students into future tech leaders with <strong>multi-modal perception, algorithmic innovation, and global competitive vision</strong>,<br>helping them stand out in <strong>top university applications</strong> and on the <strong>global tech stage</strong>.'
+  },
+
+  // Philosophy banner
+  phil_tag_text: { zh: '💡 核心理念', en: '💡 Core Philosophy' },
+  phil_title_text: { zh: '<span class="gold">算法为魂</span> + <span class="cyan">硬件为骨</span>', en: '<span class="gold">Algorithms as Soul</span> + <span class="cyan">Hardware as Bones</span>' },
+  phil_desc: {
+    zh: '算法学习 (<strong>2/3</strong>) 深度算法技能 × 机器人实践 (<strong>1/3</strong>) 系统集成<br>算法提供大脑，机器人提供身体，<strong>NVIDIA GPU</strong> 提供算力支撑',
+    en: 'Algorithm Learning (<strong>2/3</strong>) Deep Algorithm Skills × Robotics Practice (<strong>1/3</strong>) System Integration<br>Algorithms provide the brain, Robotics provide the body, <strong>NVIDIA GPU</strong> provides computing power'
+  },
+
+  phil_ratio_alg: { zh: '2/3 算法深度', en: '2/3 Algorithm Depth' },
+  phil_ratio_rob: { zh: '1/3 硬件实践', en: '1/3 Hardware Practice' },
+  phil_icon1: { zh: '🧠 算法大脑', en: '🧠 Algorithm Brain' },
+  phil_icon2: { zh: '🤖 机器人身体', en: '🤖 Robotics Body' },
+  phil_icon3: { zh: '⚡ NVIDIA GPU 算力', en: '⚡ NVIDIA GPU Computing' },
+
+  // Curriculum section
+  curri_tag: { zh: 'AI 机器人完整课程', en: 'AI Robot Full Curriculum' },
+  curri_title: { zh: 'Magikid AI Robotics <span>完整课程体系</span>', en: 'Magikid AI Robotics <span>Complete Curriculum</span>' },
+  curri_desc: { zh: '5 阶段 × 36 节课 × 90 分钟 | 算法深度：机器人应用 = 2：1', en: '5 Stages × 36 Classes × 90min | Algorithm Depth : Robotics Application = 2 : 1' },
+  table_stage: { zh: '阶段', en: 'Stage' },
+  table_focus: { zh: '核心方向', en: 'Core Focus' },
+
   // Curriculum
-  course_title: { zh: '🚀 Curriculum', en: '🚀 Curriculum System' },
-  course_sub: { zh: '5Stage递进式AI精英培养', en: '5-Stage Progressive AI Elite Training' },
+  course_title: { zh: '🚀 课程体系', en: '🚀 Curriculum System' },
+  course_sub: { zh: '5 阶段递进式 AI 精英培养', en: '5-Stage Progressive AI Elite Training' },
   course_explore: { zh: '探索者', en: 'Explorer' },
   course_innovator: { zh: '创新者', en: 'Innovator' },
   course_challenger: { zh: '挑战者', en: 'Challenger' },
   course_master: { zh: '大师', en: 'Master' },
   course_specialist: { zh: '专家', en: 'Specialist' },
 
-  // 赛道表格
+  // Track table
   track_title: { zh: '🎯 赛道 · 赛事 · 核心Course', en: '🎯 Track · Competition · Core Curriculum' },
-  track_a: { zh: '赛道A：Algorithm与奥赛类', en: 'Track A: Algorithm & Olympiad' },
-  track_b: { zh: '赛道B：具身智能与Robotics类', en: 'Track B: Embodied Intelligence & Robotics' },
+  track_a: { zh: '赛道A：算法与奥赛类', en: 'Track A: Algorithm & Olympiad' },
+  track_b: { zh: '赛道B：具身智能与机器人类', en: 'Track B: Embodied Intelligence & Robotics' },
   track_c: { zh: '赛道C：系统集成与黑客松类', en: 'Track C: System Integration & Hackathons' },
   track_col1: { zh: '赛道分类', en: 'Track' },
   track_col2: { zh: '目标赛事', en: 'Target Competitions' },
-  track_col3: { zh: '核心依赖CourseStage', en: 'Prerequisite Courses' },
+  track_col3: { zh: '核心依赖Course Stage', en: 'Prerequisite Course Stage' },
   track_col4: { zh: 'MAGIKID成就', en: 'MAGIKID Achievements' },
+  track_a_name: { zh: 'Algorithm与奥赛类', en: 'Algorithm & Olympiad' },
+  track_b_name: { zh: '具身智能与Robotics类', en: 'Embodied AI & Robotics' },
+  track_c_name: { zh: '系统集成与黑客松类', en: 'System Integration & Hackathons' },
+  bs_a_desc: { zh: '深度学习底层原理 / 模型调优 / NLP & CV Algorithm', en: 'Deep Learning Fundamentals / Model Tuning / NLP & CV Algorithms' },
+  bs_b_desc: { zh: '视觉加速 / ROS 2 机器人系统 / Isaac Sim 仿真', en: 'Visual Acceleration / ROS 2 Robotics System / Isaac Sim Simulation' },
+  bs_c_desc: { zh: 'API 集成 / LLM 微调 / 数据科学实践', en: 'API Integration / LLM Fine-tuning / Data Science Practice' },
+  track_a_ach_title: { zh: '🏆 MAGIKID成就', en: '🏆 MAGIKID Achievements' },
+  track_a_ach2: {
+    zh: '2026 届学生成为<strong style="color:#D32F2F">美国 AI 奥林匹克代表队 4 名队员之一</strong>，代表美国参赛',
+    en: '2026 student became <strong style="color:#D32F2F">one of 4 members of the U.S. AI Olympiad National Team</strong>, representing the USA'
+  },
+  track_b_ach3: { zh: '荣登 <strong style="color:#D32F2F">全球排行榜第 18 名</strong> 🏆', en: 'Ranked <strong style="color:#D32F2F">18th on the Global Leaderboard</strong> 🏆' },
+  track_b_ach7: {
+    zh: '2026 年 6 月：<strong style="color:#D32F2F">12 支赛队</strong>出征伯克利 AI 机器人世锦赛',
+    en: 'June 2026: <strong style="color:#D32F2F">12 teams</strong> competing in the Berkeley AI Robotics World Championship'
+  },
+  track_b_ach8: {
+    zh: '2026 年举办<strong style="color:#CE93D8">硅谷 Inno Valley AI 机器人国际公开赛</strong>',
+    en: '2026: hosting the <strong style="color:#CE93D8">Silicon Valley Inno Valley AI Robotics International Open</strong>'
+  },
+  track_c_ach2: {
+    zh: '2021–2026 NASA Space Apps：<strong style="color:#D32F2F">32 支赛队</strong>斩获全球题目奖',
+    en: '2021–2026 NASA Space Apps: <strong style="color:#D32F2F">32 teams</strong> won global category awards'
+  },
+  track_c_ach7: {
+    zh: '<strong>2026 年：3 组学生</strong>开始启动创业项目',
+    en: '<strong>2026: 3 groups of students</strong> started launching startup projects'
+  },
+  mapping_note_text: {
+    zh: '选课路径：先完成基础阶段课程，再根据目标赛事选择对应的精英专项深化方向',
+    en: 'Course Path: Complete foundational stage courses first, then choose the Elite specialization based on your target competition'
+  },
 
-  // Students荣耀
-  gallery_title: { zh: '🌟 Students荣耀 2026', en: '🌟 Student Glory 2026' },
+  // Student stories
+  champ_tag: { zh: '冠军故事', en: 'Champion Stories' },
+  champ_desc: { zh: '从 MAGIKID 课堂到世界舞台，开启顶尖大学之门。', en: 'From MAGIKID classroom to world stages, opening doors to top universities.' },
+  your_child_next: { zh: '你的孩子可能是下一个故事主角。', en: 'Your child could be the next protagonist of this story.' },
+  gallery_title: { zh: '🌟 学生荣耀 2026', en: '🌟 Student Glory 2026' },
   gallery_world: { zh: '🏆 World Stage', en: '🏆 World Stage' },
-  gallery_students: { zh: 'MAGIKID 赛队 · 全球 AI Comp现场', en: 'MAGIKID Teams · Global AI Competition' },
+  gallery_students: { zh: 'MAGIKID 赛队 · 全球 AI 竞赛现场', en: 'MAGIKID Teams · Global AI Competition' },
+  jerry_ribbon: { zh: '🏆 美国队 · 全球第一', en: '🏆 TEAM USA · NO.1 GLOBALLY' },
+  jerry_subtitle: { zh: 'AI Olympiad 2026 · Team USA · 斯洛文尼亚世界赛', en: 'AI Olympiad 2026 · Team USA · Slovenia World Championship' },
+  jerry_quote: {
+    zh: '"从机器人赛场到 AI 奥林匹克世界舞台——MAGIKID 给了我从 \'会用\' 到 \'真正理解AI\' 的底气。"',
+    en: '"From the Robotics arena to the AI Olympiad world stage — MAGIKID gave me the confidence to truly understand AI, not just use it."'
+  },
+  jerry_ach1: {
+    zh: '<strong>AI Olympiad 2026</strong> Team USA 出征斯洛文尼亚决赛，团队共获得 <strong>2金1荣誉奖</strong>',
+    en: '<strong>AI Olympiad 2026</strong> Team USA at the Slovenia finals, winning <strong>2 Gold Medals + 1 Honor Award</strong>'
+  },
+  jerry_ach2: {
+    zh: '<strong>VEX IQ Robotics</strong> Innovate Division 机器人竞赛冠军',
+    en: '<strong>VEX IQ Robotics</strong> Innovate Division Competition Champion'
+  },
+  jerry_ach3: {
+    zh: '从机器人编程 → AI 赛场，跨学科综合能力的完美体现',
+    en: 'From Robotics programming → AI competition, a perfect demonstration of interdisciplinary skills'
+  },
+  jerry_colleges: { zh: '🎓 藤校大满贯录取', en: '🎓 Full Ivy League Sweep' },
+  sophie_ribbon: { zh: '💡 创新奖 · 加州理工', en: '💡 INNOVATION AWARD · CALTECH' },
+  sophie_subtitle: { zh: 'AI Robotics 赛队 · 加州理工 AI 国际公开赛 · 创新奖', en: 'AI Robotics Team · Caltech AI International Open · Innovation Award' },
+  sophie_quote: {
+    zh: '"在 MAGIKID 机器人队学到的不只是代码，而是用 AI 思维解决真实问题的方法——这正是 Caltech 看中的能力。"',
+    en: '"At MAGIKID Robotics, I learned not just code, but how to solve real problems with AI thinking — exactly what Caltech values."'
+  },
+  sophie_ach1: {
+    zh: '<strong>加州理工 AI 国际公开赛</strong>创新奖（Innovation Award）',
+    en: '<strong>Caltech AI International Open</strong> Innovation Award'
+  },
+  sophie_ach2: {
+    zh: '<strong>MAGIKID AI Robotics 赛队</strong>核心成员，参与多站国际竞赛',
+    en: '<strong>MAGIKID AI Robotics Team</strong> core member, participated in multiple international competitions'
+  },
+  sophie_ach3: {
+    zh: '女生 AI 机器人高手，成为 <strong>Girl Powered 女生榜样</strong>',
+    en: 'Female AI Robotics champion, became a <strong>Girl Powered role model</strong>'
+  },
+  sophie_colleges: { zh: '🎓 顶尖名校录取通知书', en: '🎓 Elite University Offers' },
+  story_cta: { zh: '🌟 开启 AI 竞赛之路', en: '🌟 Start Your AI Competition Journey' },
 
-  // 底部
+  // Curriculum detail items - Level 1 Explorer
+  gallery_tag: { zh: '竞赛相册', en: 'Competition Gallery' },
+  gallery_title2: { zh: '<span>竞赛</span>精彩瞬间', en: '<span>Competition</span> Highlights' },
+  gallery_desc: { zh: 'MAGIKID 学生驰骋全球赛场，书写属于自己的科技故事。', en: 'MAGIKID students competing globally, writing their own tech stories.' },
+  gallery_cta_text: { zh: '下一个站在这里的，可能就是你的孩子。', en: 'The next person standing here could be your child.' },
+  gallery_join: { zh: '立即加入 →', en: 'Join Now →' },
+  comp_tag: { zh: '竞赛导航', en: 'Competition Navigator' },
+  comp_title: { zh: '<span>AI 竞赛</span>导航地图', en: '<span>AI Competition</span> Navigation Map' },
+  filter_all: { zh: '全部', en: 'All' },
+  filter_mid: { zh: '初中', en: 'Mid School' },
+  filter_high: { zh: '高中', en: 'High School' },
+  mapping_title_text: { zh: '赛道 · 赛事 · 核心依赖课程阶段', en: 'Track · Competition · Core Prerequisite Course Stage' },
+  tier_intl_top: { zh: '国际顶级', en: 'International Top' },
+  tier_intl: { zh: '国际级', en: 'International' },
+  tier_robotics: { zh: 'Robotics+AI', en: 'Robotics+AI' },
+  tier_space: { zh: '太空级', en: 'Space Level' },
+  tier_research: { zh: '科研级', en: 'Research Level' },
+  tier_national: { zh: '国家级', en: 'National Level' },
+  tier_hackathon: { zh: '全球黑客松', en: 'Global Hackathon' },
+  tier_industrial: { zh: '工业平台', en: 'Industrial Platform' },
+  comp_ioai_tag1: { zh: '14-19 岁', en: 'Age 14-19' },
+  comp_ioai_tag2: { zh: '国际竞赛', en: 'Intl Competition' },
+  comp_aio_tag1: { zh: '高中至大学', en: 'Grade 12-University' },
+  comp_aio_tag2: { zh: '国际竞赛', en: 'Intl Competition' },
+  comp_vex_tag1: { zh: '14-18 岁', en: 'Age 14-18' },
+  comp_vex_tag2: { zh: '高中/预科', en: 'High School/Pre-College' },
+  comp_zero_tag1: { zh: '14-18 岁', en: 'Age 14-18' },
+  comp_zero_tag2: { zh: '高中', en: 'High School' },
+  comp_behavior_tag1: { zh: '15 岁以上', en: 'Age 15+' },
+  comp_behavior_tag2: { zh: '科研与大学级', en: 'Research & College Level' },
+  comp_presidential_tag1: { zh: '13-18 岁', en: 'Age 13-18' },
+  comp_presidential_tag2: { zh: '全国级', en: 'National Level' },
+  comp_nasa_tag1: { zh: '14 岁以上', en: 'Age 14+' },
+  comp_nasa_tag2: { zh: '全球黑客松', en: 'Global Hackathon' },
+  comp_kaggle_tag1: { zh: '15 岁以上', en: 'Age 15+' },
+  comp_kaggle_tag2: { zh: '全球平台', en: 'Global Platform' },
+  camp_pre_title: { zh: '赛前集训营', en: 'Pre-Competition Training Camp' },
+  camp_embodied_title: { zh: '具身智能集训营', en: 'Embodied Intelligence Training Camp' },
+  camp_hackathon_title: { zh: 'Hackathon 完整集训营', en: 'Hackathon Complete Training Camp' },
+  camp_space_title: { zh: '太空机器人 Hackathon 集训营', en: 'Space Robotics Hackathon Camp' },
+  camp_industrial_title: { zh: '工业实战集训营', en: 'Industrial Practice Training Camp' },
+  cta_tag: { zh: '加入我们', en: 'Join Us' },
+  cta_title: { zh: '准备好让孩子站上<span style="color:var(--gold)">世界 AI 舞台</span>了吗？', en: 'Ready for your child to compete on the <span style="color:var(--gold)">World AI Stage</span>?' },
+  book_btn: { zh: '📩 预约免费评估', en: '📩 Book Free Assessment' },
+  input_name: { zh: '孩子姓名', en: 'Student Name' },
+  input_grade: { zh: '年龄 / 年级', en: 'Age & Grade' },
+  input_city: { zh: '所在城市', en: 'City' },
+  footer_course_link: { zh: '课程体系', en: 'Curriculum' },
+  footer_schedule_link: { zh: '课程表', en: 'Schedule' },
+  footer_students_link: { zh: '学生故事', en: 'Student Stories' },
+  footer_comp_link: { zh: '竞赛现场', en: 'Competitions' },
+  footer_compnav_link: { zh: '竞赛导航', en: 'Competition Map' },
+
+  // Curriculum detail items - Level 1 Explorer
+  l1_q1_title: { zh: 'Python 算法基石', en: 'Python Algorithm Foundation' },
+  l1_q1_alg: { zh: 'AI 奥林匹克概论；Python 自动化逻辑；列表与字典的高级应用', en: 'AI Olympiad overview; Python automation logic; advanced list and dictionary applications' },
+  l1_q2_title: { zh: '数据特征与分类算法', en: 'Data Features & Classification Algorithms' },
+  l1_q2_alg: { zh: '统计思维；KNN 与决策树；从原始数据中提取 AI 可识别的"特征"', en: 'Statistical thinking; KNN and Decision Trees; extracting AI-recognizable "features" from raw data' },
+  l1_q3_title: { zh: '系统集成与项目开发', en: 'System Integration & Project Development' },
+  l1_q3_alg: { zh: '语音处理（NLP 入门）与逻辑判断流', en: 'Voice processing (NLP intro) and logical decision flow' },
+  l1_q3_proj: { zh: '综合项目：个人首个 AI 机器人项目路演', en: 'Capstone: First Personal AI Robotics Project Presentation' },
+
+  // Level 2 Visionary
+  l2_core: { zh: '🐕 机器狗感知 · OpenCV 视觉工程', en: '🐕 Robot Dog Perception · OpenCV Vision Engineering' },
+  l2_q1_title: { zh: 'OpenCV 图像处理与 GPU 加速', en: 'OpenCV Image Processing & GPU Acceleration' },
+  l2_q1_alg: { zh: '色彩空间转换；形态学运算；NVIDIA GPU 上的算子加速原理', en: 'Color space conversion; morphological operations; NVIDIA GPU operator acceleration' },
+  l2_q1_rob: { zh: '机器狗初探：四足驱动原理；NVIDIA Jetson 与机器狗底层通讯', en: 'Robot dog intro: quadruped drive principles; NVIDIA Jetson and robot dog low-level communication' },
+  l2_q2_alg: { zh: 'MediaPipe 深度应用；手势与人体姿态 3D 坐标提取', en: 'MediaPipe deep application; gesture and 3D human body pose coordinate extraction' },
+
+  // Level 3 Elite 1
+  l3_core: { zh: '🔥 深度学习底层 · NVIDIA Jetson 边缘部署', en: '🔥 Deep Learning Fundamentals · NVIDIA Jetson Edge Deployment' },
+  l3_q2_title: { zh: 'PyTorch 架构与视觉识别', en: 'PyTorch Architecture & Visual Recognition' },
+  l3_q2_alg: { zh: 'CNN 卷积神经网络架构；正则化与过拟合处理；PyTorch 训练管线', en: 'CNN architecture; regularization and overfitting handling; PyTorch training pipeline' },
+  l3_q2_rob: { zh: '赛场目标识别：训练并部署针对 VEX 或 AI 比赛道具的专属识别模型', en: 'Competition target recognition: train and deploy custom models for VEX or AI competition props' },
+  l3_q3_title: { zh: 'ROS 2 架构与系统集成', en: 'ROS 2 Architecture & System Integration' },
+  l3_q3_rob: { zh: '机器人操作系统：掌握 ROS 2 节点通讯，实现复杂系统的软硬件解耦', en: 'Robotics OS: master ROS 2 node communication for software-hardware decoupling in complex systems' },
+  l3_q3_eval: { zh: '精英考核：封闭式算法精度与硬件响应极限测试', en: 'Elite Assessment: Closed-book algorithm accuracy and hardware response limit testing' },
+
+  // Level 4 Elite 2
+  l4_q1_alg: { zh: 'YOLO 系列深度解析；语义分割与实例分割；针对 IOAI 赛题的特征提取策略', en: 'In-depth YOLO series analysis; semantic and instance segmentation; feature extraction for IOAI problems' },
+  l4_q1_comp: { zh: '模拟赛 (I)：限定时间内完成大规模数据集的目标识别与分类任务', en: 'Mock Competition (I): Complete large-scale dataset object recognition and classification within time limits' },
+  l4_q2_title: { zh: 'NLP 与大模型竞技', en: 'NLP & Large Model Competition' },
+  l4_q2_alg: { zh: 'Transformer 架构；注意力机制数学推导；LLM 微调与 Prompt 策略', en: 'Transformer architecture; attention mechanism math derivation; LLM fine-tuning and Prompt strategies' },
+  l4_q2_comp: { zh: '模拟赛 (II)：基于给定文本/对话数据集的语义分析与逻辑推理挑战', en: 'Mock Competition (II): Semantic analysis and logical reasoning on given text/dialogue datasets' },
+  l4_q3_title: { zh: 'IOAI 综合强化与真题复盘', en: 'IOAI Comprehensive Training & Past Paper Review' },
+  l4_q3_alg: { zh: '多模态感知（CLIP）；强化学习基础；奥赛经典算法（图算法、动态规划）', en: 'Multimodal perception (CLIP); RL basics; classic olympiad algorithms (graph algorithms, dynamic programming)' },
+  l4_q3_sim: { zh: '48 小时科学挑战赛 (Scientific Challenge) 模拟，撰写技术报告与海报', en: '48-hour Scientific Challenge simulation, writing technical reports and academic posters' },
+
+  // Level 5 Specialist
+  l5_core: { zh: '🦾 具身智能科研年 · 人形机器人 · 大型黑客松', en: '🦾 Embodied AI Research Year · Humanoid Robotics · Large Hackathons' },
+  l5_q1_title: { zh: '人形机器人平衡与动力学', en: 'Humanoid Robotics Balance & Dynamics' },
+  l5_q1_alg: { zh: '控制理论基础；重心 (CoM) 轨迹规划；人体步态数学模型', en: 'Control theory basics; Center of Mass (CoM) trajectory planning; human gait mathematical model' },
+  l5_q1_rob: { zh: '人形机实践：人形机器人硬件组装与 IMU 传感器平衡控制测试', en: 'Humanoid Practice: hardware assembly and IMU sensor balance control testing' },
+  l5_q2_title: { zh: 'Isaac Sim 仿真与端到端学习', en: 'Isaac Sim Simulation & End-to-End Learning' },
+  l5_q2_alg: { zh: 'NVIDIA Isaac Sim 仿真环境搭建；仿真到现实 (Sim-to-Real) 迁移技术', en: 'NVIDIA Isaac Sim environment setup; Sim-to-Real transfer technology' },
+  l5_q2_rob: { zh: '强化学习训练：通过 RL 训练人形机器人的灵巧手操作与平稳行走', en: 'RL training: train humanoid robot dexterous hand manipulation and stable walking' },
+  l5_q3_hack: { zh: '24-48 小时极限黑客松：解决一个具身智能综合命题（如"人形机器人清理实验室"）', en: '24-48 hour extreme hackathon: solve an embodied AI challenge (e.g. "Humanoid Robot Cleans Lab")' },
+  l5_q3_proj: { zh: '科研总结：完成高质量作品集，发表学术海报或参与社区贡献', en: 'Research summary: complete high-quality portfolio, publish academic poster or contribute to community' },
+
+  // Course note
+  course_note: {
+    zh: '<strong>完成每级课程后：</strong>颁发 <em>MAGIKID AI Olympiad 课程认证</em>，成绩优异者直荐参加 <em>IOAI 国际竞赛</em>、<em>Regeneron ISEF</em>、<em>Caltech AI Open</em> 等顶级舞台。',
+    en: '<strong>Upon completing each level:</strong> receive <em>MAGIKID AI Olympiad Course Certification</em>. Top performers are directly recommended for <em>IOAI International Competition</em>, <em>Regeneron ISEF</em>, <em>Caltech AI Open</em>, and other elite stages.'
+  },
+
+  // Competition section
+  comp_nav_desc: {
+    zh: '课程结束即可直接冲击这些舞台，覆盖初中至大学全年龄段。',
+    en: 'Upon completing courses, students can directly compete on these stages, covering all ages from Grade 8 to university.'
+  },
+
+  // Competition cards
+  ioai_desc: {
+    zh: '全球最高级别高中 AI 奥林匹克，聚焦算法解题与 AI 创新应用。Jerry 已在斯洛文尼亚代表 Team USA 夺冠，全球排名 No.1。',
+    en: "The world's highest-level high school AI Olympiad, focusing on algorithm problem-solving and AI innovation. Jerry represented Team USA in Slovenia and ranked No.1 globally."
+  },
+  ioai_prereq: { zh: 'Elite 1 & 2 · 深度学习 / 模型调优 / NLP & CV 算法', en: 'Elite 1 & 2 · Deep Learning / Model Tuning / NLP & CV Algorithms' },
+  aio_desc: {
+    zh: '汇聚全球最优秀青年，共同挑战理论与实践 AI 双重任务。2026 年赛于 2 月 23–27 日在斯洛文尼亚卢布尔雅那举办。',
+    en: "Gathering the world's best young talents to tackle both theoretical and practical AI challenges. The 2026 competition is held Feb 23–27 in Ljubljana, Slovenia."
+  },
+  aio_prereq: { zh: 'Elite 1 & 2 · 深度学习 / 模型调优 / NLP & CV 算法', en: 'Elite 1 & 2 · Deep Learning / Model Tuning / NLP & CV Algorithms' },
+  vex_desc: {
+    zh: '高级 AI 机器人竞赛，考察自动驾驶、计算机视觉与算法策略，与 MAGIKID 机器人课程深度衔接。',
+    en: 'Advanced AI Robotics competition testing autonomous driving, computer vision and algorithm strategy, deeply integrated with MAGIKID Robotics courses.'
+  },
+  vex_prereq: { zh: 'Elite 1（含 ROS 2 模块）· Visionary & Elite 1', en: 'Elite 1 (incl. ROS 2 module) · Visionary & Elite 1' },
+  zero_desc: {
+    zh: '在国际空间站真实机器人上编程，完成自主太空任务。MIT + NASA 联合背书，含金量极高。',
+    en: 'Program real robots on the International Space Station to complete autonomous space missions. Jointly endorsed by MIT + NASA — extremely prestigious.'
+  },
+  zero_prereq: { zh: 'Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学', en: 'Explorer & Elite 2 · API Integration / LLM Fine-tuning / Data Science' },
+  behavior_desc: {
+    zh: '斯坦福前沿人形机器人模拟挑战，聚焦 Embodied AI（具身智能），解决复杂家务任务。',
+    en: "Stanford's cutting-edge humanoid robotics simulation challenge, focusing on Embodied AI to solve complex household tasks."
+  },
+  behavior_prereq: { zh: 'Elite 1（含 ROS 2 模块）· Visionary & Elite 1', en: 'Elite 1 (incl. ROS 2 module) · Visionary & Elite 1' },
+  presidential_desc: {
+    zh: '美国官方发起的全国性 AI 挑战赛，鼓励学生为社区与教育问题设计真实 AI 解决方案。',
+    en: 'Officially launched U.S. national AI challenge, encouraging students to design real AI solutions for community and education problems.'
+  },
+  presidential_prereq: { zh: 'Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学', en: 'Explorer & Elite 2 · API Integration / LLM Fine-tuning / Data Science' },
+  nasa_desc: {
+    zh: '全球规模最大的 hackathon，使用 NASA 开放数据解决地球与太空问题，AI 创新赛道正当时。',
+    en: "The world's largest hackathon, using NASA open data to solve Earth and space problems. The AI innovation track is in its prime."
+  },
+  nasa_prereq: { zh: 'Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学', en: 'Explorer & Elite 2 · API Integration / LLM Fine-tuning / Data Science' },
+  kaggle_desc: {
+    zh: '全球最大数据科学与机器学习平台，解决工业级 AI 问题。完赛记录与名次可直接写入大学申请履历。',
+    en: "The world's largest data science and ML platform, solving industrial-grade AI problems. Competition records and rankings can be directly included in college applications."
+  },
+  kaggle_prereq: { zh: 'Elite 1 · 深度学习基础 / PyTorch / 特征工程入门', en: 'Elite 1 · Deep Learning Basics / PyTorch / Feature Engineering Intro' },
+  kaggle_hours: { zh: '10 节课时', en: '10 Training Hours' },
+
+  // Training camp items
+  camp_sci_challenge: { zh: '<strong>科学挑战赛模拟（12 节）</strong><br>限时阅读前沿 AI 论文并复现算法', en: '<strong>Scientific Challenge Simulation (12 classes)</strong><br>Timed reading of cutting-edge AI papers and algorithm reproduction' },
+  camp_alg_sprint: { zh: '<strong>算法冲刺（8 节）</strong><br>强化模型融合、超参数搜索与极端数据集处理', en: '<strong>Algorithm Sprint (8 classes)</strong><br>Model ensemble, hyperparameter search, and extreme dataset handling' },
+  camp_poster: { zh: '<strong>海报答辩演练（4 节）</strong><br>斯洛文尼亚赛制海报制作与英文答辩', en: '<strong>Poster Defense Practice (4 classes)</strong><br>Slovenia competition format poster creation and English defense' },
+  camp_auto: { zh: '<strong>自动驾驶策略（6 节）</strong><br>视觉 SLAM 导航与 PID 闭环控制', en: '<strong>Autonomous Driving Strategy (6 classes)</strong><br>Visual SLAM navigation and PID closed-loop control' },
+  camp_sim: { zh: '<strong>Isaac Sim 仿真迁移（8 节）</strong><br>针对 BEHAVIOR 任务的 Sim-to-Real 训练', en: '<strong>Isaac Sim Transfer (8 classes)</strong><br>Sim-to-Real training for BEHAVIOR tasks' },
+  camp_multi: { zh: '<strong>多机协同（4 节）</strong><br>双机通信与策略博弈实践', en: '<strong>Multi-robot Coordination (4 classes)</strong><br>Dual-robot communication and strategic competition' },
+  camp_nasa: { zh: '<strong>NASA 开放数据处理（4 节）</strong><br>卫星影像解析与太空遥测数据处理', en: '<strong>NASA Open Data Processing (4 classes)</strong><br>Satellite imagery analysis and space telemetry data processing' },
+  camp_mvp: { zh: '<strong>MVP 快速开发（4 节）</strong><br>LLM API 原型构建与代码快速迭代', en: '<strong>MVP Rapid Development (4 classes)</strong><br>LLM API prototyping and rapid code iteration' },
+  camp_impact: { zh: '<strong>方案策划与社会影响论证（4 节）</strong><br>社会意义陈述与技术方案呈现', en: '<strong>Solution Planning & Social Impact (4 classes)</strong><br>Social impact statement and technical solution presentation' },
+  camp_social: { zh: '<strong>社会影响力陈述（4 节）</strong><br>方案策划与社会意义论证', en: '<strong>Social Impact Statement (4 classes)</strong><br>Solution planning and social impact justification' },
+  camp_feature: { zh: '<strong>特征工程进阶（4 节）</strong><br>处理表格数据的高级技巧与特征选择', en: '<strong>Advanced Feature Engineering (4 classes)</strong><br>Advanced techniques for tabular data and feature selection' },
+  camp_stack: { zh: '<strong>模型堆叠（4 节）</strong><br>XGBoost、LightGBM 与神经网络混合建模', en: '<strong>Model Stacking (4 classes)</strong><br>XGBoost, LightGBM and neural network hybrid modeling' },
+  camp_pipeline: { zh: '<strong>Pipeline 自动化（2 节）</strong><br>高效实验记录与代码流水线管理', en: '<strong>Pipeline Automation (2 classes)</strong><br>Efficient experiment tracking and code pipeline management' },
+  comp_cta_btn: { zh: '🚀 立即咨询报名', en: '🚀 Inquire & Enroll Now' },
+
+  // CTA section
+  cta_p: {
+    zh: '课程顾问 1 对 1 评估孩子基础，为您定制入学路径',
+    en: 'Course advisor 1-on-1 assessment, customized enrollment path for your child'
+  },
+  cta_or_contact: { zh: '或联系我们：', en: 'Or contact us: ' },
+
+  // Footer
   footer_join: { zh: 'Join Us', en: 'Join Us' },
   footer_contact: { zh: 'Contact Us', en: 'Contact Us' },
+  footer_tagline: { zh: '冠军基因 · 规模化 · 让每个孩子都能站上国际 AI 赛场', en: 'Champion DNA · Scalable · Every Child on the International AI Stage' },
+  footer_official: { zh: '官网', en: 'Website' },
   footer_location: { zh: 'California · Silicon Valley | Texas · Dallas', en: 'California · Silicon Valley | Texas · Dallas' },
   footer_note: { zh: 'MAGIKID Lab reserves all legal rights', en: 'MAGIKID Lab reserves all legal rights' },
 
-  // 移动端导航
+  // Mobile nav
   mob_home: { zh: 'Home', en: 'Home' },
   mob_course: { zh: 'Course', en: 'Course' },
   mob_students: { zh: 'Students', en: 'Students' },
   mob_comp: { zh: 'Comp', en: 'Comp' },
   mob_enroll: { zh: 'Enroll', en: 'Enroll' },
+  mob_enroll_cta: { zh: '立即报名', en: 'Enroll Now' },
+  mob_schedule: { zh: '课程表', en: 'Schedule' },
+
+  // Input placeholders
+  input_name: { zh: '孩子姓名', en: 'Student Name' },
+  input_grade: { zh: '年龄 / 年级', en: 'Age & Grade' },
+  input_city: { zh: '所在城市', en: 'City' },
 };
 
 let currentLang = 'zh';
@@ -1337,6 +1660,14 @@ function switchLang(lang) {
     const key = el.dataset.i18n;
     if (i18n[key] && i18n[key][lang]) {
       el.innerHTML = i18n[key][lang];
+    }
+  });
+
+  // Update placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (i18n[key] && i18n[key][lang]) {
+      el.placeholder = i18n[key][lang];
     }
   });
 
@@ -1359,17 +1690,17 @@ document.addEventListener('DOMContentLoaded', () => {
 <nav>
   <a href="#" class="nav-logo"><img src="images/magikid-logo.png" alt="MAGIKID" height="36"></a>
   <ul class="nav-links">
-    <li><a href="#overview" data-i18n="nav_course">Curriculum</a></li>
-    <li><a href="#curriculum" data-i18n="nav_schedule">Course表</a></li>
-    <li><a href="#stories" data-i18n="nav_students">Student Stories</a></li>
-    <li><a href="#gallery" data-i18n="nav_comp">Comp现场</a></li>
-    <li><a href="#competitions" data-i18n="nav_comp">Comp导航</a></li>
+    <li><a href="#overview" data-i18n="nav_course">课程体系</a></li>
+    <li><a href="#curriculum" data-i18n="nav_schedule">课程表</a></li>
+    <li><a href="#stories" data-i18n="nav_students">学生故事</a></li>
+    <li><a href="#gallery" data-i18n="nav_comp">竞赛现场</a></li>
+    <li><a href="#competitions" data-i18n="footer_compnav_link">竞赛导航</a></li>
   </ul>
   <div class="lang-switcher">
-    <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">中/EN</button>
+    <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">中文</button>
     <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
   </div>
-  <a href="#cta" class="nav-cta" data-i18n="nav_enroll">立即Enroll →</a>
+  <a href="#cta" class="nav-cta" data-i18n="nav_enroll">立即报名 →</a>
 </nav>
 
 <!-- HERO -->
@@ -1377,7 +1708,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge">🏆 AI Elite Competition Program</div>
+    <div class="hero-badge"><span data-i18n="hero_badge_sub">🏆 AI 精英竞赛项目</span></div>
     <img src="images/magikid-logo.png" alt="MAGIKID" class="hero-logo">
     <h1>
       <span class="gold">AI Olympia</span> ×<br>
@@ -1385,8 +1716,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <span data-i18n="hero_title">Competition Elite Program</span>
     </h1>
     <p class="hero-sub">
-      36×5 Classes · Zero to Stage · <em>Theory + Competition + Research</em><br>
-      Every child can stand on the <em>International AI Competition Stage</em>
+      <span data-i18n="hero_sub_p">36×5 课时 · 从零到赛场 · <em>理论 + 竞赛 + 科研</em><br>每个孩子都能站上<em>国际 AI 竞赛舞台</em></span>
     </p>
     <div class="hero-btns">
       <a href="#cta" class="btn-primary" data-i18n="hero_cta">🚀 Start Your AI Journey</a>
@@ -1402,23 +1732,22 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- INTRO BANNER -->
 <section class="intro-banner">
   <div class="intro-content">
-    <h2>
-      <span class="highlight-gold">MAGIKID</span> 独家 AI Robotics<span data-i18n="mob_course">Course</span>，<br>
-      培养<span class="highlight-cyan">卓越顶尖</span>的 AI Robotics人才
+    <h2 data-i18n="intro_h2">
+      MAGIKID 独家 AI Robotics 课程，<br>培养<span class="highlight-cyan">卓越顶尖</span>的 AI Robotics 人才
     </h2>
-    <p style="color: var(--text-dim); font-size: 15px; line-height: 1.8; max-width: 760px; margin: 0 auto;">
-      2026 年<span data-i18n="mob_course">Course</span>升级，不仅对标 <strong style="color:var(--gold)">IOAI（人工智能奥林匹克）</strong>，
-      更是一场面向全球 AI 黑客松与尖端Robotics赛事的进阶之旅。
+    <p style="color: var(--text-dim); font-size: 15px; line-height: 1.8; max-width: 760px; margin: 0 auto;" data-i18n="intro_desc">
+      2026 年课程升级，不仅对标 <strong style="color:var(--gold)">IOAI（人工智能奥林匹克）</strong>，
+      更是一场面向全球 AI 黑客松与尖端机器人赛事的进阶之旅。
       我们紧跟技术浪潮，实时集成
       <strong style="color:var(--cyan)">Generative AI（生成式AI）</strong>、
       <strong style="color:#CE93D8">Transformer 架构</strong>与
-      <strong style="color:var(--gold)">ROS Robotics操作系统</strong>等前沿科技。
+      <strong style="color:var(--gold)">ROS 机器人操作系统</strong>等前沿科技。
     </p>
     <div class="intro-pillars-inline">
       <div class="intro-pillar-item"><span class="emoji">🧠</span>Generative AI 生成式AI</div>
       <div class="intro-pillar-item"><span class="emoji">⚡</span>Transformer 架构</div>
       <div class="intro-pillar-item"><span class="emoji">🤖</span>ROS Robotics系统</div>
-      <div class="intro-pillar-item"><span class="emoji">🏆</span>IOAI Intl Competition通道</div>
+      <div class="intro-pillar-item"><span class="emoji">🏆</span>IOAI 竞赛通道</div>
     </div>
     <div class="intro-highlight-bar">
       <span class="intro-highlight-chip">🤖 Robotics + AI 双赛道</span>
@@ -1434,27 +1763,27 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="stat-card">
       <div class="stat-icon">🏆</div>
       <div class="stat-num">8</div>
-      <div class="stat-label">Top International Competitions</div>
+      <div class="stat-label"><span data-i18n="stat1_label">顶级国际竞赛</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-icon">🎓</div>
       <div class="stat-num">4</div>
-      <div class="stat-label">藤校/顶尖大学合办赛事<br><span style="font-size:11px;color:var(--text-dim)">MIT · Caltech · Stanford · Berkeley</span></div>
+      <div class="stat-label" data-i18n="stat_ivy">藤校/顶尖大学合办赛事<br><span style="font-size:11px;color:var(--text-dim)">MIT · Caltech · Stanford · Berkeley</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-icon">👥</div>
       <div class="stat-num">3</div>
-      <div class="stat-label">Age Coverage<br><span style="font-size:11px;color:var(--text-dim)">Middle · High School · University</span></div>
+      <div class="stat-label"><span data-i18n="stat3_label">覆盖年龄段</span><br><span style="font-size:11px;color:var(--text-dim)">Middle · High School · University</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-icon">📚</div>
       <div class="stat-num">36×5</div>
-      <div class="stat-label"><span data-i18n="nav_course"><span data-i18n="mob_course">Course</span>体系</span><br><span style="font-size:11px;color:var(--text-dim)">180 Classes Total</span></div>
+      <div class="stat-label" data-i18n="stat_course">课程体系<br><span style="font-size:11px;color:var(--text-dim)">180 Classes Total</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-icon">⚡</div>
       <div class="stat-num">90'</div>
-      <div class="stat-label">Per Class Duration<br><span style="font-size:11px;color:var(--text-dim)">Recommended 1-2 times/week</span></div>
+      <div class="stat-label"><span data-i18n="stat5_label">每节课时长</span><br><span style="font-size:11px;color:var(--text-dim)">Recommended 1-2 times/week</span></div>
     </div>
   </div>
 </section>
@@ -1463,34 +1792,34 @@ document.addEventListener('DOMContentLoaded', () => {
 <section class="overview-section" id="overview">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">Program Overview</div>
-      <h2 class="section-title">AI Olympia <span>36×5 Curriculum System</span></h2>
-      <p class="section-desc">Focused on Theory, Algorithm Implementation & Project Practice - 90min per class, 12 classes per stage.</p>
+      <div class="section-tag" data-i18n="overview_tag">项目概览</div>
+      <h2 class="section-title" data-i18n="overview_title">AI Olympia <span>36×5 课程体系</span></h2>
+      <p class="section-desc" data-i18n="overview_desc">专注于理论学习、算法实现与项目实践——每节 90 分钟，每阶段 12 节课。</p>
     </div>
 
     <div class="overview-pillars">
       <div class="pillar-card">
         <div class="pillar-icon">🐍</div>
-        <div class="pillar-title">Python Algorithm Logic</div>
-        <div class="pillar-desc">From basic syntax to advanced algorithmic thinking, building solid programming foundation and problem-solving skills.</div>
+        <div class="pillar-title" data-i18n="pillar1_title">Python 算法逻辑</div>
+        <div class="pillar-desc" data-i18n="pillar1_desc">从基础语法到高级算法思维，建立扎实的编程基础与问题解决能力。</div>
       </div>
       <div class="pillar-card">
         <div class="pillar-icon">🔥</div>
-        <div class="pillar-title">PyTorch Deep Learning Architecture</div>
-        <div class="pillar-desc">掌握神经网络核心架构，从 CNN 到 Transformer，实现前沿 AI 模型。</div>
+        <div class="pillar-title" data-i18n="pillar2_title">PyTorch 深度学习架构</div>
+        <div class="pillar-desc" data-i18n="pillar2_desc">掌握神经网络核心架构，从 CNN 到 Transformer，实现前沿 AI 模型。</div>
       </div>
       <div class="pillar-card">
         <div class="pillar-icon">⚙️</div>
-        <div class="pillar-title">Model Tuning & Engineering</div>
-        <div class="pillar-desc">Model optimization for complex datasets, software-hardware integration, from lab to real-world scenarios.</div>
+        <div class="pillar-title" data-i18n="pillar3_title">模型调优与工程化</div>
+        <div class="pillar-desc" data-i18n="pillar3_desc">针对复杂数据集的模型优化、软硬件集成，从实验室走向真实应用场景。</div>
       </div>
     </div>
 
     <div class="outcome-banner">
-      <div class="outcome-title">🎯 Training Goals</div>
-      <div class="outcome-desc">
+      <div class="outcome-title" data-i18n="outcome_title">🎯 培养目标</div>
+      <div class="outcome-desc" data-i18n="outcome_desc">
         通过<strong>"理论学习+模拟竞技+独立科研"</strong>三位一体的模式，<br>
-        我们致力于将学生塑造为具备<strong>多模态感知、Algorithm创新力与国际竞争视野</strong>的未来科技领袖，<br>
+        我们致力于将学生塑造为具备<strong>多模态感知、算法创新力与国际竞争视野</strong>的未来科技领袖，<br>
         助其在<strong>顶级名校申请</strong>与<strong>全球科技舞台</strong>中脱颖而出。
       </div>
     </div>
@@ -1503,29 +1832,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <!-- Core Philosophy Banner -->
         <div class="philosophy-banner">
-          <div class="phil-tag">💡 Core Philosophy</div>
-          <h2 class="phil-title"><span class="gold">Algorithms as Soul</span> + <span class="cyan">Hardware as Bones</span></h2>
-          <p class="phil-desc">
-            Algorithm Learning (<strong>2/3</strong>) Deep Algorithm Skills × Robotics Practice (<strong>1/3</strong>) System Integration<br>
-            Algorithm提供大脑，Robotics提供身体，<strong>NVIDIA GPU</strong> 提供算力支撑
+          <div class="phil-tag" data-i18n="phil_tag_text">💡 核心理念</div>
+          <h2 class="phil-title" data-i18n="phil_title_text"><span class="gold">算法为魂</span> + <span class="cyan">硬件为骨</span></h2>
+          <p class="phil-desc" data-i18n="phil_desc">
+            算法学习 (<strong>2/3</strong>) 深度算法技能 × 机器人实践 (<strong>1/3</strong>) 系统集成<br>
+            算法提供大脑，机器人提供身体，<strong>NVIDIA GPU</strong> 提供算力支撑
           </p>
           <div class="phil-ratios">
             <div class="ratio-bar">
-              <div class="ratio-alg">2/3 Algorithm Depth</div>
-              <div class="ratio-rob">1/3 Hardware Practice</div>
+              <div class="ratio-alg" data-i18n="phil_ratio_alg">2/3 算法深度</div>
+              <div class="ratio-rob" data-i18n="phil_ratio_rob">1/3 硬件实践</div>
             </div>
             <div class="phil-icons">
-              <span class="phil-icon-item">🧠 Algorithm Brain</span>
-              <span class="phil-icon-item">🤖 Robotics Body</span>
-              <span class="phil-icon-item">⚡ NVIDIA GPU Computing</span>
+              <span class="phil-icon-item" data-i18n="phil_icon1">🧠 算法大脑</span>
+              <span class="phil-icon-item" data-i18n="phil_icon2">🤖 机器人身体</span>
+              <span class="phil-icon-item" data-i18n="phil_icon3">⚡ NVIDIA GPU 算力</span>
             </div>
           </div>
         </div>
 
         <div class="section-header" style="margin-top:64px">
-          <div class="section-tag">AI Robot Full Curriculum</div>
-          <h2 class="section-title">Magikid AI Robotics <span>Complete Curriculum</span></h2>
-          <p class="section-desc">5 Stages × 36 Classes × 90min | Algorithm Depth : Robotics Application = 2 : 1</p>
+          <div class="section-tag" data-i18n="curri_tag">AI 机器人完整课程</div>
+          <h2 class="section-title" data-i18n="curri_title">Magikid AI Robotics <span>完整课程体系</span></h2>
+          <p class="section-desc" data-i18n="curri_desc">5 阶段 × 36 节课 × 90 分钟 | 算法深度：机器人应用 = 2：1</p>
         </div>
 
         <!-- <span data-i18n="mob_course">Course</span>体系概览表格 -->
@@ -1533,8 +1862,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <table class="overview-table">
             <thead>
               <tr>
-                <th class="th-level">Stage</th>
-                <th class="th-focus">Core Focus</th>
+                <th class="th-level" data-i18n="table_stage">阶段</th>
+                <th class="th-focus" data-i18n="table_focus">核心方向</th>
                 <th class="th-q">Q1 · L1-L12</th>
                 <th class="th-q">Q2 · L13-L24</th>
                 <th class="th-q">Q3 · L25-L36</th>
@@ -1623,27 +1952,27 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="detail-semesters">
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q1 · L1–L12</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">Python Algorithm基石</div>
+              <div class="sem-title" data-i18n="l1_q1_title">Python 算法基石</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L1–L9</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">AI 奥林匹克概论；Python 自动化逻辑；列表与字典的高级应用</span></div>
+                <div class="sem-item"><span class="si-num">L1–L9</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l1_q1_alg">AI 奥林匹克概论；Python 自动化逻辑；列表与字典的高级应用</span></div>
                 <div class="sem-item"><span class="si-num">L10–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Robot Hand Control: Multi-DOF servo protocol, basic teaching & playback</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q2 · L13–L24</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">数据特征与分类Algorithm</div>
+              <div class="sem-title" data-i18n="l1_q2_title">数据特征与分类算法</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">统计思维；KNN 与决策树；从原始数据中提取 AI 可识别的"特征"</span></div>
+                <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l1_q2_alg">统计思维；KNN 与决策树；从原始数据中提取 AI 可识别的"特征"</span></div>
                 <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Visual Sorting: Color & shape recognition, automated material handling</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q3 · L25–L36</span><span class="sem-type type-rob">Practice</span></div>
-              <div class="sem-title">系统集成与Project开发</div>
+              <div class="sem-title" data-i18n="l1_q3_title">系统集成与项目开发</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">语音处理（NLP 入门）与逻辑判断流</span></div>
+                <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l1_q3_alg">语音处理（NLP 入门）与逻辑判断流</span></div>
                 <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Capstone: Voice-controlled workstation, human-robot dialogue precision grasping</span></div>
-                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">Project</span><span class="si-desc">Capstone：个人首个 AI RoboticsProject路演</span></div>
+                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">Project</span><span class="si-desc" data-i18n="l1_q3_proj">综合项目：个人首个 AI 机器人项目路演</span></div>
               </div>
             </div>
           </div>
@@ -1656,22 +1985,22 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="level-badge lv-vis">Visionary</span>
               <span class="detail-grade">Grade 9-10</span>
             </div>
-            <div class="detail-core">🐕 Robot Dog Perception · OpenCV Vision工程</div>
+            <div class="detail-core" data-i18n="l2_core">🐕 机器狗感知 · OpenCV 视觉工程</div>
           </div>
           <div class="detail-semesters">
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q1 · L1–L12</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">OpenCV 图像处理与 GPU 加速</div>
+              <div class="sem-title" data-i18n="l2_q1_title">OpenCV 图像处理与 GPU 加速</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L1–L9</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">色彩空间转换；形态学运算；NVIDIA GPU 上的算子加速原理</span></div>
-                <div class="sem-item"><span class="si-num">L10–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">机器狗初探：四足驱动原理；NVIDIA Jetson 与机器狗底层通讯</span></div>
+                <div class="sem-item"><span class="si-num">L1–L9</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l2_q1_alg">色彩空间转换；形态学运算；NVIDIA GPU 上的算子加速原理</span></div>
+                <div class="sem-item"><span class="si-num">L10–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l2_q1_rob">机器狗初探：四足驱动原理；NVIDIA Jetson 与机器狗底层通讯</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q2 · L13–L24</span><span class="sem-type type-alg">Algorithm</span></div>
               <div class="sem-title">Keypoint Detection & Body Control</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">MediaPipe 深度应用；手势与人体姿态 3D 坐标提取</span></div>
+                <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l2_q2_alg">MediaPipe 深度应用；手势与人体姿态 3D 坐标提取</span></div>
                 <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Dynamic Guidance: Visual tracking, robot dog responds to human motion</span></div>
               </div>
             </div>
@@ -1694,7 +2023,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="level-badge lv-e1">Elite 1</span>
               <span class="detail-grade">Grade 10-11</span>
             </div>
-            <div class="detail-core">🔥 深度学习底层 · NVIDIA Jetson 边缘部署</div>
+            <div class="detail-core" data-i18n="l3_core">🔥 深度学习底层 · NVIDIA Jetson 边缘部署</div>
           </div>
           <div class="detail-semesters">
             <div class="sem-card">
@@ -1707,19 +2036,19 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q2 · L13–L24</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">PyTorch 架构与视觉识别</div>
+              <div class="sem-title" data-i18n="l3_q2_title">PyTorch 架构与视觉识别</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">CNN 卷积神经网络架构；正则化与过拟合处理；PyTorch 训练管线</span></div>
-                <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">赛场目标识别：训练并部署针对 VEX 或 AI 比赛道具的专属识别模型</span></div>
+                <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l3_q2_alg">CNN 卷积神经网络架构；正则化与过拟合处理；PyTorch 训练管线</span></div>
+                <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l3_q2_rob">赛场目标识别：训练并部署针对 VEX 或 AI 比赛道具的专属识别模型</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q3 · L25–L36</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">ROS 2 架构与系统集成</div>
+              <div class="sem-title" data-i18n="l3_q3_title">ROS 2 架构与系统集成</div>
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">Transfer Learning; Model Weight Management & Version Control</span></div>
-                <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Robotics操作系统：掌握 ROS 2 节点通讯，实现复杂系统的软硬件解耦</span></div>
-                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag eval-tag">考核</span><span class="si-desc">Elite 考核：封闭式Algorithm精度与硬件响应极限测试</span></div>
+                <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l3_q3_rob">机器人操作系统：掌握 ROS 2 节点通讯，实现复杂系统的软硬件解耦</span></div>
+                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag eval-tag">考核</span><span class="si-desc" data-i18n="l3_q3_eval">精英考核：封闭式算法精度与硬件响应极限测试</span></div>
               </div>
             </div>
           </div>
@@ -1739,24 +2068,24 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-header"><span class="sem-label">Q1 · L1–L12</span><span class="sem-type type-alg">Algorithm</span></div>
               <div class="sem-title">Advanced Vision & Object Detection</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L1–L8</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">YOLO 系列深度解析；语义分割与实例分割；针对 IOAI 赛题的特征提取策略</span></div>
-                <div class="sem-item"><span class="si-num">L9–L12</span><span class="si-tag contest-tag"><span data-i18n="mob_comp">Comp</span></span><span class="si-desc">模拟赛 (I)：限定时间内完成大规模数据集的目标识别与分类任务</span></div>
+                <div class="sem-item"><span class="si-num">L1–L8</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l4_q1_alg">YOLO 系列深度解析；语义分割与实例分割；针对 IOAI 赛题的特征提取策略</span></div>
+                <div class="sem-item"><span class="si-num">L9–L12</span><span class="si-tag contest-tag"><span data-i18n="mob_comp">Comp</span></span><span class="si-desc" data-i18n="l4_q1_comp">模拟赛 (I)：限定时间内完成大规模数据集的目标识别与分类任务</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q2 · L13–L24</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">NLP 与大模型竞技</div>
+              <div class="sem-title" data-i18n="l4_q2_title">NLP 与大模型竞技</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">Transformer 架构；注意力机制数学推导；LLM 微调与 Prompt 策略</span></div>
-                <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag contest-tag"><span data-i18n="mob_comp">Comp</span></span><span class="si-desc">模拟赛 (II)：基于给定文本/对话数据集的语义分析与逻辑推理挑战</span></div>
+                <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l4_q2_alg">Transformer 架构；注意力机制数学推导；LLM 微调与 Prompt 策略</span></div>
+                <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag contest-tag"><span data-i18n="mob_comp">Comp</span></span><span class="si-desc" data-i18n="l4_q2_comp">模拟赛 (II)：基于给定文本/对话数据集的语义分析与逻辑推理挑战</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q3 · L25–L36</span><span class="sem-type type-rob">Practice</span></div>
-              <div class="sem-title">IOAI 综合强化与真题复盘</div>
+              <div class="sem-title" data-i18n="l4_q3_title">IOAI 综合强化与真题复盘</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L25–L30</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">多模态感知（CLIP）；强化学习基础；奥赛经典Algorithm（图Algorithm、动态规划）</span></div>
-                <div class="sem-item project-row"><span class="si-num">L31–L36</span><span class="si-tag contest-tag">全真模拟</span><span class="si-desc">48 小时科学挑战赛 (Scientific Challenge) 模拟，撰写技术报告与海报</span></div>
+                <div class="sem-item"><span class="si-num">L25–L30</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l4_q3_alg">多模态感知（CLIP）；强化学习基础；奥赛经典算法（图算法、动态规划）</span></div>
+                <div class="sem-item project-row"><span class="si-num">L31–L36</span><span class="si-tag contest-tag">全真模拟</span><span class="si-desc" data-i18n="l4_q3_sim">48 小时科学挑战赛 (Scientific Challenge) 模拟，撰写技术报告与海报</span></div>
               </div>
             </div>
           </div>
@@ -1769,31 +2098,31 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="level-badge lv-spec">Specialist</span>
               <span class="detail-grade">Grade 12-University</span>
             </div>
-            <div class="detail-core">🦾 具身智能科研年 · 人形Robotics · 大型黑客松</div>
+            <div class="detail-core" data-i18n="l5_core">🦾 具身智能科研年 · 人形机器人 · 大型黑客松</div>
           </div>
           <div class="detail-semesters">
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q1 · L1–L12</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">人形Robotics平衡与动力学</div>
+              <div class="sem-title" data-i18n="l5_q1_title">人形机器人平衡与动力学</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L1–L6</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">控制理论基础；重心 (CoM) 轨迹规划；人体步态数学模型</span></div>
-                <div class="sem-item"><span class="si-num">L7–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">人形机Practice：人形Robotics硬件组装与 IMU 传感器平衡控制测试</span></div>
+                <div class="sem-item"><span class="si-num">L1–L6</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l5_q1_alg">控制理论基础；重心 (CoM) 轨迹规划；人体步态数学模型</span></div>
+                <div class="sem-item"><span class="si-num">L7–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l5_q1_rob">人形机实践：人形机器人硬件组装与 IMU 传感器平衡控制测试</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q2 · L13–L24</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">Isaac Sim 仿真与端到端学习</div>
+              <div class="sem-title" data-i18n="l5_q2_title">Isaac Sim 仿真与端到端学习</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L13–L18</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">NVIDIA Isaac Sim 仿真环境搭建；仿真到现实 (Sim-to-Real) 迁移技术</span></div>
-                <div class="sem-item"><span class="si-num">L19–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">强化学习训练：通过 RL 训练人形Robotics的灵巧手操作与平稳行走</span></div>
+                <div class="sem-item"><span class="si-num">L13–L18</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l5_q2_alg">NVIDIA Isaac Sim 仿真环境搭建；仿真到现实 (Sim-to-Real) 迁移技术</span></div>
+                <div class="sem-item"><span class="si-num">L19–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l5_q2_rob">强化学习训练：通过 RL 训练人形机器人的灵巧手操作与平稳行走</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q3 · L25–L36</span><span class="sem-type type-rob">Practice</span></div>
               <div class="sem-title">Large Hackathon & Research Output</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L25–L32</span><span class="si-tag hack-tag">黑客松</span><span class="si-desc">24-48 小时极限黑客松：解决一个具身智能综合命题（如"人形Robotics清理实验室"）</span></div>
-                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">科研</span><span class="si-desc">科研总结：完成高质量 Portfolio，发表学术 Poster 或参与社区贡献</span></div>
+                <div class="sem-item"><span class="si-num">L25–L32</span><span class="si-tag hack-tag">黑客松</span><span class="si-desc" data-i18n="l5_q3_hack">24-48 小时极限黑客松：解决一个具身智能综合命题（如"人形机器人清理实验室"）</span></div>
+                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">科研</span><span class="si-desc" data-i18n="l5_q3_proj">科研总结：完成高质量作品集，发表学术海报或参与社区贡献</span></div>
               </div>
             </div>
           </div>
@@ -1801,9 +2130,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="table-note-box">
           <span class="note-icon">🎯</span>
-          <div>
-            <strong>完成每级<span data-i18n="mob_course">Course</span>后：</strong>颁发 <em>MAGIKID AI Olympiad <span data-i18n="mob_course">Course</span>认证</em>，
-            成绩优异者直荐参加 <em>IOAI Intl Competition</em>、<em>Regeneron ISEF</em>、
+          <div data-i18n="course_note">
+            <strong>完成每级课程后：</strong>颁发 <em>MAGIKID AI Olympiad 课程认证</em>，
+            成绩优异者直荐参加 <em>IOAI 国际竞赛</em>、<em>Regeneron ISEF</em>、
             <em>Caltech AI Open</em> 等顶级舞台。
           </div>
         </div>
@@ -1814,9 +2143,9 @@ document.addEventListener('DOMContentLoaded', () => {
     <section class="stories-section" id="stories">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Champion Stories</div>
-          <h2 class="section-title" data-i18n="gallery_title">🌟 Students荣耀 2026</h2>
-          <p class="section-desc">From MAGIKID classroom to world stages, opening doors to top universities.</p>
+          <div class="section-tag" data-i18n="champ_tag">冠军故事</div>
+          <h2 class="section-title" data-i18n="gallery_title">🌟 学生荣耀 2026</h2>
+          <p class="section-desc" data-i18n="champ_desc">从 MAGIKID 课堂到世界舞台，开启顶尖大学之门。</p>
         </div>
 
         <div class="stories-grid">
@@ -1826,29 +2155,29 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="story-image-area">
           <img src="images/Jerry.png" alt="Jerry at AI Olympiad">
           <div class="story-image-overlay"></div>
-          <div class="story-ribbon">🏆 TEAM USA · NO.1 GLOBALLY</div>
+          <div class="story-ribbon" data-i18n="jerry_ribbon">🏆 美国队 · 全球第一</div>
         </div>
             <div class="story-body">
               <div class="story-name">Jerry</div>
-              <div class="story-subtitle">AI Olympiad 2026 · Team USA · 斯洛文尼亚世界赛</div>
-              <div class="story-quote">
-                "从Robotics赛场到 AI 奥林匹克世界舞台——MAGIKID 给了我从 '会用' 到 '真正理解AI' 的底气。"
+              <div class="story-subtitle" data-i18n="jerry_subtitle">AI Olympiad 2026 · Team USA · 斯洛文尼亚世界赛</div>
+              <div class="story-quote" data-i18n="jerry_quote">
+                "从机器人赛场到 AI 奥林匹克世界舞台——MAGIKID 给了我从 '会用' 到 '真正理解AI' 的底气。"
               </div>
               <div class="story-achievements">
                 <div class="achievement-row">
                   <span class="achievement-icon">🌍</span>
-                  <span class="achievement-text"><strong>AI Olympiad 2026</strong> Team USA 出征斯洛文尼亚决赛，团队共获得 <strong>2金1荣誉奖</strong></span>
+                  <span class="achievement-text" data-i18n="jerry_ach1"><strong>AI Olympiad 2026</strong> Team USA 出征斯洛文尼亚决赛，团队共获得 <strong>2金1荣誉奖</strong></span>
                 </div>
                 <div class="achievement-row">
                   <span class="achievement-icon">🤖</span>
-                  <span class="achievement-text"><strong>VEX IQ Robotics</strong> Innovate Division Robotics<span data-i18n="mob_comp">Comp</span>冠军</span>
+                  <span class="achievement-text" data-i18n="jerry_ach2"><strong>VEX IQ Robotics</strong> Innovate Division Robotics Comp冠军</span>
                 </div>
                 <div class="achievement-row">
                   <span class="achievement-icon">🎯</span>
-                  <span class="achievement-text">从Robotics编程 → AI 赛场，跨学科综合能力的完美体现</span>
+                  <span class="achievement-text" data-i18n="jerry_ach3">从机器人编程 → AI 赛场，跨学科综合能力的完美体现</span>
                 </div>
               </div>
-              <div class="colleges-title">🎓 藤校大满贯录取 · Ivy League Sweep</div>
+              <div class="colleges-title" data-i18n="jerry_colleges">🎓 藤校大满贯录取 · Ivy League Sweep</div>
               <div class="colleges-list">
                 <span class="college-tag elite">Harvard 哈佛</span>
                 <span class="college-tag elite">Princeton 普林斯顿</span>
@@ -1864,29 +2193,29 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="story-image-area">
           <img src="images/Sophie.png" alt="Sophie at AI Competition">
           <div class="story-image-overlay"></div>
-          <div class="story-ribbon">💡 INNOVATION AWARD · CALTECH</div>
+          <div class="story-ribbon" data-i18n="sophie_ribbon">💡 创新奖 · 加州理工</div>
         </div>
             <div class="story-body">
               <div class="story-name">Sophie</div>
-              <div class="story-subtitle">AIRobotics赛队 · 加州理工 AI 国际公开赛 · 创新奖</div>
-              <div class="story-quote">
-                "在 MAGIKID Robotics队学到的不只是代码，而是用 AI 思维解决真实问题的方法——这正是 Caltech 看中的能力。"
+              <div class="story-subtitle" data-i18n="sophie_subtitle">AI Robotics 赛队 · 加州理工 AI 国际公开赛 · 创新奖</div>
+              <div class="story-quote" data-i18n="sophie_quote">
+                "在 MAGIKID 机器人队学到的不只是代码，而是用 AI 思维解决真实问题的方法——这正是 Caltech 看中的能力。"
               </div>
               <div class="story-achievements">
                 <div class="achievement-row">
                   <span class="achievement-icon">🏆</span>
-                  <span class="achievement-text"><strong>加州理工 AI 国际公开赛</strong>创新奖（Innovation Award）</span>
+                  <span class="achievement-text" data-i18n="sophie_ach1"><strong>加州理工 AI 国际公开赛</strong>创新奖（Innovation Award）</span>
                 </div>
                 <div class="achievement-row">
                   <span class="achievement-icon">🤖</span>
-                  <span class="achievement-text"><strong>MAGIKID AI Robotics赛队</strong>核心成员，参与多站Intl Competition事</span>
+                  <span class="achievement-text" data-i18n="sophie_ach2"><strong>MAGIKID AI Robotics 赛队</strong>核心成员，参与多站国际竞赛</span>
                 </div>
                 <div class="achievement-row">
                   <span class="achievement-icon">💪</span>
-                  <span class="achievement-text">女生AIRobotics高手，成为 <strong>Girl Powered 女生榜样</strong></span>
+                  <span class="achievement-text" data-i18n="sophie_ach3">女生AIRobotics高手，成为 <strong>Girl Powered 女生榜样</strong></span>
                 </div>
               </div>
-              <div class="colleges-title">🎓 顶尖名校 Offer · Elite University Offers</div>
+              <div class="colleges-title" data-i18n="sophie_colleges">🎓 顶尖名校 Offer · Elite University Offers</div>
               <div class="colleges-list">
                 <span class="college-tag elite">Princeton 普林斯顿</span>
                 <span class="college-tag elite">Stanford 斯坦福</span>
@@ -1900,8 +2229,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
     <div style="text-align:center; margin-top: 40px;">
-      <p style="color: var(--text-dim); font-size: 14px; margin-bottom: 16px;">Your child could be the next protagonist of this story.</p>
-      <a href="#cta" class="btn-primary">🌟 开启 AI <span data-i18n="mob_comp">Comp</span>之路</a>
+      <p style="color: var(--text-dim); font-size: 14px; margin-bottom: 16px;" data-i18n="your_child_next">你的孩子可能是下一个故事主角。</p>
+      <a href="#cta" class="btn-primary" data-i18n="story_cta">🌟 开启 AI 竞赛之路</a>
     </div>
   </div>
 </section>
@@ -1910,23 +2239,23 @@ document.addEventListener('DOMContentLoaded', () => {
 <section style="background: var(--dark2); padding: 80px 20px;" id="gallery">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">Competition Gallery</div>
-      <h2 class="section-title"><span>Competition</span> Highlights</h2>
-      <p class="section-desc">MAGIKID <span data-i18n="mob_students">Students</span> competing globally, writing their own tech stories.</p>
+      <div class="section-tag" data-i18n="gallery_tag">竞赛相册</div>
+      <h2 class="section-title" data-i18n="gallery_title2"><span>竞赛</span>精彩瞬间</h2>
+      <p class="section-desc" data-i18n="gallery_desc">MAGIKID 学生驰骋全球赛场，书写属于自己的科技故事。</p>
     </div>
     <div class="gallery-grid">
       <div class="gallery-item" style="grid-column: 1 / -1;">
         <img src="images/Competition.png" alt="MAGIKID Competition Scene">
         <div class="gallery-overlay">
           <div class="gallery-tag"><span data-i18n="gallery_world">🏆 World Stage</span></div>
-          <div class="gallery-caption"><span data-i18n="gallery_students">MAGIKID 赛队 · 全球 AI <span data-i18n="mob_comp">Comp</span>现场</span></div>
+          <div class="gallery-caption"><span data-i18n="gallery_students">MAGIKID 赛队 · 全球 AI 竞赛现场</span></div>
         </div>
       </div>
     </div>
     <div style="text-align:center; margin-top: 32px;">
       <p style="color: var(--text-dim); font-size: 14px;">
-        The next person standing here could be your child.
-        <a href="#cta" style="color: var(--gold); text-decoration: none; font-weight: 700;">Join Now →</a>
+        <span data-i18n="gallery_cta_text">下一个站在这里的，可能就是你的孩子。</span>
+        <a href="#cta" style="color: var(--gold); text-decoration: none; font-weight: 700;" data-i18n="gallery_join">立即加入 →</a>
       </p>
     </div>
   </div>
@@ -1936,29 +2265,29 @@ document.addEventListener('DOMContentLoaded', () => {
     <section class="competitions-section" id="competitions">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Competition Navigator</div>
-          <h2 class="section-title"><span>AI Competition</span> Navigation Map</h2>
-          <p class="section-desc"><span data-i18n="mob_course">Course</span>结束即可直接冲击这些舞台，覆盖 8-大学全年龄段。</p>
+          <div class="section-tag" data-i18n="comp_tag">竞赛导航</div>
+          <h2 class="section-title" data-i18n="comp_title"><span>AI 竞赛</span>导航地图</h2>
+          <p class="section-desc" data-i18n="comp_nav_desc">Course结束即可直接冲击这些舞台，覆盖 8-大学全年龄段。</p>
         </div>
 
         <!-- Age filter chips -->
         <div class="comp-filter" id="compFilter">
-          <button class="filter-btn active" onclick="filterComps(this, 'all')">All</button>
-          <button class="filter-btn" onclick="filterComps(this, 'mid')">Mid School</button>
-          <button class="filter-btn" onclick="filterComps(this, 'high')">High School</button>
+          <button class="filter-btn active" onclick="filterComps(this, 'all')" data-i18n="filter_all">全部</button>
+          <button class="filter-btn" onclick="filterComps(this, 'mid')" data-i18n="filter_mid">初中</button>
+          <button class="filter-btn" onclick="filterComps(this, 'high')" data-i18n="filter_high">高中</button>
         </div>
 
         <!-- Competition-to-Curriculum Mapping Table -->
         <div class="mapping-table-wrap">
           <div class="mapping-title">
             <span class="mapping-icon">🗺️</span>
-            <span>赛道 · 赛事 · 核心依赖<span data-i18n="mob_course">Course</span>Stage</span>
+            <span><span data-i18n="mapping_title_text">赛道 · 赛事 · 核心依赖课程阶段</span></span>
           </div>
           <div class="mapping-table">
             <div class="mapping-header">
               <div class="mh-col mh-track"><span data-i18n="track_col1">赛道分类</span></div>
               <div class="mh-col mh-comp"><span data-i18n="track_col2">目标赛事</span></div>
-              <div class="mh-col mh-base"><span data-i18n="track_col3">核心依赖<span data-i18n="mob_course">Course</span>Stage</span></div>
+              <div class="mh-col mh-base"><span data-i18n="track_col3">核心依赖Course Stage</span></div>
               <div class="mh-col mh-achieve"><span data-i18n="track_col4">MAGIKID成就</span></div>
             </div>
 
@@ -1967,7 +2296,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="mr-track">
                 <span class="track-badge track-a">A</span>
                 <div class="track-info">
-                  <div class="track-name">Algorithm与奥赛类</div>
+                  <div class="track-name" data-i18n="track_a_name">Algorithm与奥赛类</div>
                   <div class="track-en">Algorithm & Olympiad Track</div>
                 </div>
               </div>
@@ -1995,13 +2324,13 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="bs-icon">🎯</span>
                   <div class="bs-text">
                     <span class="bs-primary">Elite 1 & 2</span>
-                    <span class="bs-desc">深度学习底层原理 / 模型调优 / NLP & CV Algorithm</span>
+                    <span class="bs-desc" data-i18n="bs_a_desc">深度学习底层原理 / 模型调优 / NLP & CV Algorithm</span>
                   </div>
                 </div>
               </div>
               <div class="mr-achieve">
                 <div class="track-achieve-box achieve-a">
-                  <div class="track-achieve-title">🏆 MAGIKID成就</div>
+                  <div class="track-achieve-title" data-i18n="track_a_ach_title">🏆 MAGIKID成就</div>
                   <div class="track-achieve-items">
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
@@ -2009,7 +2338,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-red"></span>
-                      <span>2026 届<span data-i18n="mob_students">Students</span>成为<strong style="color:#D32F2F">美国奥 AI 代表队 4 名队员之一</strong>，代表美国参赛</span>
+                      <span data-i18n="track_a_ach2">2026 届Students成为<strong style="color:#D32F2F">美国奥 AI 代表队 4 名队员之一</strong>，代表美国参赛</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-cyan"></span>
@@ -2025,7 +2354,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="mr-track">
                 <span class="track-badge track-b">B</span>
                 <div class="track-info">
-                  <div class="track-name">具身智能与Robotics类</div>
+                  <div class="track-name" data-i18n="track_b_name">具身智能与Robotics类</div>
                   <div class="track-en">Embodied AI & Robotics Track</div>
                 </div>
               </div>
@@ -2048,13 +2377,13 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="bs-icon">🤖</span>
                   <div class="bs-text">
                     <span class="bs-primary">Visionary & Elite 1</span>
-                    <span class="bs-desc">视觉加速 / ROS 2 Robotics系统 / Isaac Sim 仿真</span>
+                    <span class="bs-desc" data-i18n="bs_b_desc">视觉加速 / ROS 2 Robotics系统 / Isaac Sim 仿真</span>
                   </div>
                 </div>
               </div>
               <div class="mr-achieve">
                 <div class="track-achieve-box achieve-b">
-                  <div class="track-achieve-title">🏆 MAGIKID成就</div>
+                  <div class="track-achieve-title" data-i18n="track_a_ach_title">🏆 MAGIKID成就</div>
                   <div class="track-achieve-items">
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-cyan"></span>
@@ -2066,7 +2395,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-red"></span>
-                      <span>荣登 <strong style="color:#D32F2F">全球 Lead Board 第18名</strong> 🏆</span>
+                      <span data-i18n="track_b_ach3">荣登 <strong style="color:#D32F2F">全球 Lead Board 第18名</strong> 🏆</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
@@ -2082,11 +2411,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-red"></span>
-                      <span>2026 年 6 月：<strong style="color:#D32F2F">12 支赛队</strong>出征伯克利 AI Robotics世锦赛</span>
+                      <span data-i18n="track_b_ach7">2026 年 6 月：<strong style="color:#D32F2F">12 支赛队</strong>出征伯克利 AI 机器人世锦赛</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-purple"></span>
-                      <span>2026 年举办<strong style="color:#CE93D8">硅谷 Inno Valley AI Robotics国际公开赛</strong></span>
+                      <span data-i18n="track_b_ach8">2026 年举办<strong style="color:#CE93D8">硅谷 Inno Valley AI 机器人国际公开赛</strong></span>
                     </div>
                   </div>
                 </div>
@@ -2098,7 +2427,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="mr-track">
                 <span class="track-badge track-c">C</span>
                 <div class="track-info">
-                  <div class="track-name">系统集成与黑客松类</div>
+                  <div class="track-name" data-i18n="track_c_name">系统集成与黑客松类</div>
                   <div class="track-en">System Integration & Hackathon Track</div>
                 </div>
               </div>
@@ -2126,13 +2455,13 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="bs-icon">🔗</span>
                   <div class="bs-text">
                     <span class="bs-primary">Explorer & Elite 2</span>
-                    <span class="bs-desc">API 集成 / LLM 微调 / 数据科学Practice</span>
+                    <span class="bs-desc" data-i18n="bs_c_desc">API 集成 / LLM 微调 / 数据科学Practice</span>
                   </div>
                 </div>
               </div>
               <div class="mr-achieve">
                 <div class="track-achieve-box achieve-c">
-                  <div class="track-achieve-title">🏆 MAGIKID成就</div>
+                  <div class="track-achieve-title" data-i18n="track_a_ach_title">🏆 MAGIKID成就</div>
                   <div class="track-achieve-items">
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
@@ -2140,7 +2469,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-red"></span>
-                      <span>2021–2026 NASA Space Apps：<strong style="color:#D32F2F">32 支赛队</strong>斩获全球题目奖</span>
+                      <span data-i18n="track_c_ach2">2021–2026 NASA Space Apps：<strong style="color:#D32F2F">32 支赛队</strong>斩获全球题目奖</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
@@ -2160,7 +2489,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
-                      <span><strong>2026 年：3 组<span data-i18n="mob_students">Students</span></strong>开始启动创业Project</span>
+                      <span data-i18n="track_c_ach7"><strong>2026 年：3 组Students</strong>开始启动创业Project</span>
                     </div>
                   </div>
                 </div>
@@ -2169,7 +2498,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="mapping-note">
             <span class="note-icon">💡</span>
-            <span>选课路径：先完成基础Stage<span data-i18n="mob_course">Course</span>，再根据目标赛事选择对应的 Elite 专项深化方向</span>
+            <span data-i18n="mapping_note_text">选课路径：先完成基础Stage Course，再根据目标赛事选择对应的 Elite 专项深化方向</span>
           </div>
         </div>
 
@@ -2179,280 +2508,280 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="comp-card" data-age="high">
             <div class="comp-tier-badge">
               <span class="comp-tier-icon">🏆</span>
-              <span class="comp-tier-label">International Top</span>
+              <span class="comp-tier-label" data-i18n="tier_intl_top">国际顶级</span>
             </div>
             <div class="comp-name">International Olympiad in AI (IOAI)</div>
             <div class="comp-meta">
-              <span class="comp-tag">Age 14-19</span>
-              <span class="comp-tag">Intl Competition</span>
+              <span class="comp-tag" data-i18n="comp_ioai_tag1">14-19 岁</span>
+              <span class="comp-tag" data-i18n="comp_ioai_tag2">国际竞赛</span>
               <span class="comp-tag org">International Olympiad in AI Committee</span>
             </div>
-            <div class="comp-desc">
-              全球最高级别High School AI 奥林匹克，聚焦Algorithm解题与 AI 创新应用。Jerry 已在斯洛文尼亚代表 Team USA 夺冠，全球排名 No.1。
+            <div class="comp-desc" data-i18n="ioai_desc">
+              全球最高级别高中 AI 奥林匹克，聚焦算法解题与 AI 创新应用。Jerry 已在斯洛文尼亚代表 Team USA 夺冠，全球排名 No.1。
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置<span data-i18n="mob_course">Course</span>：</span>
-              <span>Elite 1 & 2 · 深度学习 / 模型调优 / NLP & CV Algorithm</span>
+              <span class="comp-prereq-label">前置Course：</span>
+              <span data-i18n="ioai_prereq">Elite 1 & 2 · 深度学习 / 模型调优 / NLP & CV Algorithm</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🔥</span>
-                <span>Pre-Competition Training Camp</span>
+                <span data-i18n="camp_pre_title">赛前集训营</span>
                 <span class="comp-training-hours">24 Training Hours</span>
               </div>
               <ul class="comp-camp-list">
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-red"></span><div><strong>Scientific Challenge 模拟 (12节)</strong><br>限时阅读前沿 AI 论文并复现Algorithm</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-orange"></span><div><strong>Algorithm冲刺 (8节)</strong><br>强化模型融合、超参数搜索与极端数据集处理</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>Poster 答辩演练 (4节)</strong><br>斯洛文尼亚赛制 Poster 制作与英文答辩</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-red"></span><div data-i18n="camp_sci_challenge"><strong>科学挑战赛模拟（12 节）</strong><br>限时阅读前沿 AI 论文并复现算法</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-orange"></span><div data-i18n="camp_alg_sprint"><strong>算法冲刺（8 节）</strong><br>强化模型融合、超参数搜索与极端数据集处理</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_poster"><strong>海报答辩演练（4 节）</strong><br>斯洛文尼亚赛制海报制作与英文答辩</div></li>
               </ul>
             </div>
-            <a href="#cta" class="comp-cta-btn">🚀 立即咨询<span data-i18n="mob_enroll">Enroll</span></a>
+            <a href="#cta" class="comp-cta-btn" data-i18n="comp_cta_btn">🚀 立即咨询报名</a>
           </div>
 
           <!-- AI Olympia -->
           <div class="comp-card" data-age="high">
             <div class="comp-tier-badge">
               <span class="comp-tier-icon">🌍</span>
-              <span class="comp-tier-label">International</span>
+              <span class="comp-tier-label" data-i18n="tier_intl">国际级</span>
             </div>
             <div class="comp-name">AI Olympia</div>
             <div class="comp-meta">
-              <span class="comp-tag">Grade 12-University</span>
-              <span class="comp-tag">Intl Competition</span>
+              <span class="comp-tag" data-i18n="comp_aio_tag1">高中至大学</span>
+              <span class="comp-tag" data-i18n="comp_aio_tag2">国际竞赛</span>
               <span class="comp-tag org">IRCAI · International Research Centre on AI</span>
             </div>
-            <div class="comp-desc">
+            <div class="comp-desc" data-i18n="aio_desc">
               汇聚全球最优秀青年，共同挑战理论与实践 AI 双重任务。2026 年赛于 2 月 23–27 日在斯洛文尼亚卢布尔雅那举办。
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置<span data-i18n="mob_course">Course</span>：</span>
-              <span>Elite 1 & 2 · 深度学习 / 模型调优 / NLP & CV Algorithm</span>
+              <span class="comp-prereq-label">前置Course：</span>
+              <span data-i18n="aio_prereq">Elite 1 & 2 · 深度学习 / 模型调优 / NLP & CV Algorithm</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🔥</span>
-                <span>Pre-Competition Training Camp</span>
+                <span data-i18n="camp_pre_title">赛前集训营</span>
                 <span class="comp-training-hours">24 Training Hours</span>
               </div>
               <ul class="comp-camp-list">
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-red"></span><div><strong>Scientific Challenge 模拟 (12节)</strong><br>限时阅读前沿 AI 论文并复现Algorithm</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-orange"></span><div><strong>Algorithm冲刺 (8节)</strong><br>强化模型融合、超参数搜索与极端数据集处理</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>Poster 答辩演练 (4节)</strong><br>斯洛文尼亚赛制 Poster 制作与英文答辩</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-red"></span><div data-i18n="camp_sci_challenge"><strong>科学挑战赛模拟（12 节）</strong><br>限时阅读前沿 AI 论文并复现算法</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-orange"></span><div data-i18n="camp_alg_sprint"><strong>算法冲刺（8 节）</strong><br>强化模型融合、超参数搜索与极端数据集处理</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_poster"><strong>海报答辩演练（4 节）</strong><br>斯洛文尼亚赛制海报制作与英文答辩</div></li>
               </ul>
             </div>
-            <a href="#cta" class="comp-cta-btn">🚀 立即咨询<span data-i18n="mob_enroll">Enroll</span></a>
+            <a href="#cta" class="comp-cta-btn" data-i18n="comp_cta_btn">🚀 立即咨询报名</a>
           </div>
 
           <!-- VEX AI Competition -->
           <div class="comp-card" data-age="high">
             <div class="comp-tier-badge">
               <span class="comp-tier-icon">🤖</span>
-              <span class="comp-tier-label">Robotics+AI</span>
+              <span class="comp-tier-label" data-i18n="tier_robotics">Robotics+AI</span>
             </div>
             <div class="comp-name">VEX AI Competition</div>
             <div class="comp-meta">
-              <span class="comp-tag">Age 14-18</span>
-              <span class="comp-tag">High School/Pre-College</span>
+              <span class="comp-tag" data-i18n="comp_vex_tag1">14-18 岁</span>
+              <span class="comp-tag" data-i18n="comp_vex_tag2">高中/预科</span>
               <span class="comp-tag org">REC Foundation / VEX Robotics</span>
             </div>
-            <div class="comp-desc">
-              高级 AI Robotics<span data-i18n="mob_comp">Comp</span>，考察自动驾驶、计算机视觉与Algorithm策略，与 MAGIKID Robotics<span data-i18n="mob_course">Course</span>深度衔接。
+            <div class="comp-desc" data-i18n="vex_desc">
+              高级 AI 机器人竞赛，考察自动驾驶、计算机视觉与算法策略，与 MAGIKID 机器人课程深度衔接。
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置<span data-i18n="mob_course">Course</span>：</span>
-              <span>Elite 1（含 ROS 2 模块）· Visionary & Elite 1</span>
+              <span class="comp-prereq-label">前置Course：</span>
+              <span data-i18n="vex_prereq">Elite 1（含 ROS 2 模块）· Visionary & Elite 1</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🤖</span>
-                <span>Embodied Intelligence Training Camp</span>
+                <span data-i18n="camp_embodied_title">具身智能集训营</span>
                 <span class="comp-training-hours">18 Training Hours</span>
               </div>
               <ul class="comp-camp-list">
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div><strong>自动驾驶策略 (6节)</strong><br>视觉 SLAM 导航与 PID 闭环控制</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div><strong>Isaac Sim 仿真迁移 (8节)</strong><br>针对 BEHAVIOR 任务的 Sim-to-Real 训练</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>多机协同 (4节)</strong><br>双机通信与策略博弈Practice</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_auto"><strong>自动驾驶策略（6 节）</strong><br>视觉 SLAM 导航与 PID 闭环控制</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_sim"><strong>Isaac Sim 仿真迁移（8 节）</strong><br>针对 BEHAVIOR 任务的 Sim-to-Real 训练</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_multi"><strong>多机协同（4 节）</strong><br>双机通信与策略博弈实践</div></li>
               </ul>
             </div>
-            <a href="#cta" class="comp-cta-btn">🚀 立即咨询<span data-i18n="mob_enroll">Enroll</span></a>
+            <a href="#cta" class="comp-cta-btn" data-i18n="comp_cta_btn">🚀 立即咨询报名</a>
           </div>
 
           <!-- Zero Robotics -->
           <div class="comp-card" data-age="high">
             <div class="comp-tier-badge">
               <span class="comp-tier-icon">🚀</span>
-              <span class="comp-tier-label">Space Level</span>
+              <span class="comp-tier-label" data-i18n="tier_space">太空级</span>
             </div>
             <div class="comp-name">Zero Robotics High School Tournament</div>
             <div class="comp-meta">
-              <span class="comp-tag">Age 14-18</span>
-              <span class="comp-tag">High School</span>
+              <span class="comp-tag" data-i18n="comp_zero_tag1">14-18 岁</span>
+              <span class="comp-tag" data-i18n="comp_zero_tag2">高中</span>
               <span class="comp-tag org">MIT Media Lab / NASA / ISS National Lab</span>
             </div>
-            <div class="comp-desc">
-              在国际空间站真实Robotics上编程，完成自主太空任务。MIT + NASA 联合背书，含金量极高。
+            <div class="comp-desc" data-i18n="zero_desc">
+              在国际空间站真实机器人上编程，完成自主太空任务。MIT + NASA 联合背书，含金量极高。
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置<span data-i18n="mob_course">Course</span>：</span>
-              <span>Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
+              <span class="comp-prereq-label">前置Course：</span>
+              <span data-i18n="zero_prereq">Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🚀</span>
-                <span>Space Robotics Hackathon Camp</span>
+                <span data-i18n="camp_space_title">太空机器人 Hackathon 集训营</span>
                 <span class="comp-training-hours">12 Training Hours</span>
               </div>
               <ul class="comp-camp-list">
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>NASA 开放数据处理 (4节)</strong><br>卫星影像解析与太空遥测数据处理</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div><strong>MVP 快速开发 (4节)</strong><br>LLM API 原型构建与代码快速迭代</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>方案策划与社会影响论证 (4节)</strong><br>社会意义陈述与技术方案呈现</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_nasa"><strong>NASA 开放数据处理（4 节）</strong><br>卫星影像解析与太空遥测数据处理</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_mvp"><strong>MVP 快速开发（4 节）</strong><br>LLM API 原型构建与代码快速迭代</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_impact"><strong>方案策划与社会影响论证（4 节）</strong><br>社会意义陈述与技术方案呈现</div></li>
               </ul>
             </div>
-            <a href="#cta" class="comp-cta-btn">🚀 立即咨询<span data-i18n="mob_enroll">Enroll</span></a>
+            <a href="#cta" class="comp-cta-btn" data-i18n="comp_cta_btn">🚀 立即咨询报名</a>
           </div>
 
           <!-- BEHAVIOR Challenge -->
           <div class="comp-card" data-age="high">
             <div class="comp-tier-badge">
               <span class="comp-tier-icon">🦾</span>
-              <span class="comp-tier-label">Research Level</span>
+              <span class="comp-tier-label" data-i18n="tier_research">科研级</span>
             </div>
             <div class="comp-name">BEHAVIOR Challenge</div>
             <div class="comp-meta">
-              <span class="comp-tag">Age 15+</span>
-              <span class="comp-tag">Research & College Level</span>
+              <span class="comp-tag" data-i18n="comp_behavior_tag1">15 岁以上</span>
+              <span class="comp-tag" data-i18n="comp_behavior_tag2">科研与大学级</span>
               <span class="comp-tag org">Stanford Vision & Learning Lab</span>
             </div>
-            <div class="comp-desc">
-              斯坦福前沿人形Robotics模拟挑战，聚焦 Embodied AI（具身智能），解决复杂家务任务。
+            <div class="comp-desc" data-i18n="behavior_desc">
+              斯坦福前沿人形机器人模拟挑战，聚焦 Embodied AI（具身智能），解决复杂家务任务。
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置<span data-i18n="mob_course">Course</span>：</span>
-              <span>Elite 1（含 ROS 2 模块）· Visionary & Elite 1</span>
+              <span class="comp-prereq-label">前置Course：</span>
+              <span data-i18n="behavior_prereq">Elite 1（含 ROS 2 模块）· Visionary & Elite 1</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🦾</span>
-                <span>Embodied Intelligence Training Camp</span>
+                <span data-i18n="camp_embodied_title">具身智能集训营</span>
                 <span class="comp-training-hours">18 Training Hours</span>
               </div>
               <ul class="comp-camp-list">
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div><strong>自动驾驶策略 (6节)</strong><br>视觉 SLAM 导航与 PID 闭环控制</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div><strong>Isaac Sim 仿真迁移 (8节)</strong><br>针对 BEHAVIOR 任务的 Sim-to-Real 训练</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>多机协同 (4节)</strong><br>双机通信与策略博弈Practice</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_auto"><strong>自动驾驶策略（6 节）</strong><br>视觉 SLAM 导航与 PID 闭环控制</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_sim"><strong>Isaac Sim 仿真迁移（8 节）</strong><br>针对 BEHAVIOR 任务的 Sim-to-Real 训练</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_multi"><strong>多机协同（4 节）</strong><br>双机通信与策略博弈实践</div></li>
               </ul>
             </div>
-            <a href="#cta" class="comp-cta-btn">🚀 立即咨询<span data-i18n="mob_enroll">Enroll</span></a>
+            <a href="#cta" class="comp-cta-btn" data-i18n="comp_cta_btn">🚀 立即咨询报名</a>
           </div>
 
           <!-- Presidential AI Challenge -->
           <div class="comp-card" data-age="mid">
             <div class="comp-tier-badge">
               <span class="comp-tier-icon">🏛️</span>
-              <span class="comp-tier-label">National Level</span>
+              <span class="comp-tier-label" data-i18n="tier_national">国家级</span>
             </div>
             <div class="comp-name">Presidential AI Challenge</div>
             <div class="comp-meta">
-              <span class="comp-tag">Age 13-18</span>
-              <span class="comp-tag">National Level</span>
+              <span class="comp-tag" data-i18n="comp_presidential_tag1">13-18 岁</span>
+              <span class="comp-tag" data-i18n="comp_presidential_tag2">全国级</span>
               <span class="comp-tag org">U.S. OSTP / AI.gov</span>
             </div>
-            <div class="comp-desc">
+            <div class="comp-desc" data-i18n="presidential_desc">
               美国官方发起的全国性 AI 挑战赛，鼓励学生为社区与教育问题设计真实 AI 解决方案。
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置<span data-i18n="mob_course">Course</span>：</span>
-              <span>Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
+              <span class="comp-prereq-label">前置Course：</span>
+              <span data-i18n="presidential_prereq">Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🏛️</span>
-                <span>Hackathon Complete Training Camp</span>
+                <span data-i18n="camp_hackathon_title">Hackathon 完整集训营</span>
                 <span class="comp-training-hours">12 Training Hours</span>
               </div>
               <ul class="comp-camp-list">
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>NASA 开放数据处理 (4节)</strong><br>卫星影像解析与太空遥测数据处理</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div><strong>MVP 快速开发 (4节)</strong><br>LLM API 原型构建与代码快速迭代</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>社会影响力陈述 (4节)</strong><br>方案策划与社会意义论证</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_nasa"><strong>NASA 开放数据处理（4 节）</strong><br>卫星影像解析与太空遥测数据处理</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_mvp"><strong>MVP 快速开发（4 节）</strong><br>LLM API 原型构建与代码快速迭代</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_social"><strong>社会影响力陈述（4 节）</strong><br>方案策划与社会意义论证</div></li>
               </ul>
             </div>
-            <a href="#cta" class="comp-cta-btn">🚀 立即咨询<span data-i18n="mob_enroll">Enroll</span></a>
+            <a href="#cta" class="comp-cta-btn" data-i18n="comp_cta_btn">🚀 立即咨询报名</a>
           </div>
 
           <!-- NASA Space Apps -->
           <div class="comp-card" data-age="mid">
             <div class="comp-tier-badge">
               <span class="comp-tier-icon">🌌</span>
-              <span class="comp-tier-label">Global Hackathon</span>
+              <span class="comp-tier-label" data-i18n="tier_hackathon">全球黑客松</span>
             </div>
             <div class="comp-name">NASA International Space Apps Challenge</div>
             <div class="comp-meta">
-              <span class="comp-tag">Age 14+</span>
-              <span class="comp-tag">Global Hackathon</span>
+              <span class="comp-tag" data-i18n="comp_nasa_tag1">14 岁以上</span>
+              <span class="comp-tag" data-i18n="comp_nasa_tag2">全球黑客松</span>
               <span class="comp-tag org">NASA / ESA / CSA / JAXA</span>
             </div>
-            <div class="comp-desc">
+            <div class="comp-desc" data-i18n="nasa_desc">
               全球规模最大的 hackathon，使用 NASA 开放数据解决地球与太空问题，AI 创新赛道正当时。
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置<span data-i18n="mob_course">Course</span>：</span>
-              <span>Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
+              <span class="comp-prereq-label">前置Course：</span>
+              <span data-i18n="nasa_prereq">Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🌌</span>
-                <span>Hackathon Complete Training Camp</span>
+                <span data-i18n="camp_hackathon_title">Hackathon 完整集训营</span>
                 <span class="comp-training-hours">12 Training Hours</span>
               </div>
               <ul class="comp-camp-list">
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>NASA 开放数据处理 (4节)</strong><br>卫星影像解析与太空遥测数据处理</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div><strong>MVP 快速开发 (4节)</strong><br>LLM API 原型构建与代码快速迭代</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>社会影响力陈述 (4节)</strong><br>方案策划与社会意义论证</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_nasa"><strong>NASA 开放数据处理（4 节）</strong><br>卫星影像解析与太空遥测数据处理</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_mvp"><strong>MVP 快速开发（4 节）</strong><br>LLM API 原型构建与代码快速迭代</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_social"><strong>社会影响力陈述（4 节）</strong><br>方案策划与社会意义论证</div></li>
               </ul>
             </div>
-            <a href="#cta" class="comp-cta-btn">🚀 立即咨询<span data-i18n="mob_enroll">Enroll</span></a>
+            <a href="#cta" class="comp-cta-btn" data-i18n="comp_cta_btn">🚀 立即咨询报名</a>
           </div>
 
           <!-- Kaggle -->
           <div class="comp-card" data-age="high">
             <div class="comp-tier-badge">
               <span class="comp-tier-icon">📊</span>
-              <span class="comp-tier-label">Industrial Platform</span>
+              <span class="comp-tier-label" data-i18n="tier_industrial">工业平台</span>
             </div>
             <div class="comp-name">Kaggle Competitions</div>
             <div class="comp-meta">
-              <span class="comp-tag">Age 15+</span>
-              <span class="comp-tag">全球平台</span>
+              <span class="comp-tag" data-i18n="comp_kaggle_tag1">15 岁以上</span>
+              <span class="comp-tag" data-i18n="comp_kaggle_tag2">全球平台</span>
               <span class="comp-tag org">Google Kaggle Division</span>
             </div>
-            <div class="comp-desc">
+            <div class="comp-desc" data-i18n="kaggle_desc">
               全球最大数据科学与机器学习平台，解决工业级 AI 问题。完赛记录与名次可直接写入大学申请履历。
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置<span data-i18n="mob_course">Course</span>：</span>
-              <span>Elite 1 · 深度学习基础 / PyTorch / 特征工程入门</span>
+              <span class="comp-prereq-label">前置Course：</span>
+              <span data-i18n="kaggle_prereq">Elite 1 · 深度学习基础 / PyTorch / 特征工程入门</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">📊</span>
-                <span>Industrial Practice Training Camp</span>
-                <span class="comp-training-hours">10 节课时</span>
+                <span data-i18n="camp_industrial_title">工业实战集训营</span>
+                <span class="comp-training-hours" data-i18n="kaggle_hours">10 节课时</span>
               </div>
               <ul class="comp-camp-list">
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-orange"></span><div><strong>特征工程进阶 (4节)</strong><br>处理 Tabular Data 的高级技巧与特征选择</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div><strong>模型堆叠 (4节)</strong><br>XGBoost、LightGBM 与神经网络混合建模</div></li>
-                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div><strong>Pipeline 自动化 (2节)</strong><br>高效实验记录与代码流水线管理</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-orange"></span><div data-i18n="camp_feature"><strong>特征工程进阶（4 节）</strong><br>处理表格数据的高级技巧与特征选择</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_stack"><strong>模型堆叠（4 节）</strong><br>XGBoost、LightGBM 与神经网络混合建模</div></li>
+                <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_pipeline"><strong>Pipeline 自动化（2 节）</strong><br>高效实验记录与代码流水线管理</div></li>
               </ul>
             </div>
-            <a href="#cta" class="comp-cta-btn">🚀 立即咨询<span data-i18n="mob_enroll">Enroll</span></a>
+            <a href="#cta" class="comp-cta-btn" data-i18n="comp_cta_btn">🚀 立即咨询报名</a>
           </div>
 
         </div>
@@ -2462,17 +2791,17 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- CTA -->
 <section class="cta-section" id="cta">
   <div class="container" style="position:relative;z-index:2">
-    <div class="section-tag">Join Us</div>
-    <h2>Ready for your child to compete on the <span style="color:var(--gold)">World AI Stage</span>?</h2>
-    <p><span data-i18n="mob_course">Course</span>顾问 1对1 评估孩子基础，为您定制入学路径</p>
+    <div class="section-tag" data-i18n="cta_tag">加入我们</div>
+    <h2 data-i18n="cta_title">准备好让孩子站上<span style="color:var(--gold)">世界 AI 舞台</span>了吗？</h2>
+    <p data-i18n="cta_p">Course顾问 1对1 评估孩子基础，为您定制入学路径</p>
     <div class="cta-form">
-      <input class="cta-input" type="text" placeholder="孩子姓名 / Student Name">
-      <input class="cta-input" type="text" placeholder="年龄 / 年级 Age & Grade">
-      <input class="cta-input" type="text" placeholder="所在城市 City">
+      <input class="cta-input" type="text" placeholder="孩子姓名 / Student Name" data-i18n-placeholder="input_name">
+      <input class="cta-input" type="text" placeholder="年龄 / 年级 Age & Grade" data-i18n-placeholder="input_grade">
+      <input class="cta-input" type="text" placeholder="所在城市 City" data-i18n-placeholder="input_city">
     </div>
-    <a href="mailto:info@magikidlab.com" class="btn-primary" style="margin-bottom:24px">📩 Book Free Assessment</a>
+    <a href="mailto:info@magikidlab.com" class="btn-primary" style="margin-bottom:24px" data-i18n="book_btn">📩 预约免费评估</a>
     <div class="cta-contact">
-      或<span data-i18n="footer_contact">Contact Us</span>：<a href="tel:+13107803793">(310) 780-3793</a> &nbsp;|&nbsp;
+      <span data-i18n="cta_or_contact">或联系我们：</span><a href="tel:+13107803793">(310) 780-3793</a> &nbsp;|&nbsp;
       <a href="mailto:info@magikidlab.com">info@magikidlab.com</a> &nbsp;|&nbsp;
       <a href="https://magikidlab.com" target="_blank">magikidlab.com</a>
     </div>
@@ -2482,14 +2811,14 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo"><img src="images/magikid-logo.png" alt="MAGIKID" height="32"></div>
-  <div class="footer-tagline">冠军基因 · 规模化 · 让每个孩子都能站上国际 AI 赛场</div>
+  <div class="footer-tagline" data-i18n="footer_tagline">冠军基因 · 规模化 · 让每个孩子都能站上国际 AI 赛场</div>
     <div class="footer-links">
-    <a href="#overview"><span data-i18n="nav_course"><span data-i18n="mob_course">Course</span>体系</span></a>
-    <a href="#curriculum"><span data-i18n="mob_course">Course</span>表</a>
-    <a href="#stories"><span data-i18n="mob_students">Students</span>故事</a>
-    <a href="#gallery"><span data-i18n="mob_comp">Comp</span>现场</a>
-    <a href="#competitions"><span data-i18n="mob_comp">Comp</span>导航</a>
-    <a href="https://magikidlab.com" target="_blank">官网</a>
+    <a href="#overview" data-i18n="footer_course_link">课程体系</a>
+    <a href="#curriculum" data-i18n="footer_schedule_link">课程表</a>
+    <a href="#stories" data-i18n="footer_students_link">学生故事</a>
+    <a href="#gallery" data-i18n="footer_comp_link">竞赛现场</a>
+    <a href="#competitions" data-i18n="footer_compnav_link">竞赛导航</a>
+    <a href="https://magikidlab.com" target="_blank" data-i18n="footer_official">官网</a>
   </div>
   <div class="footer-copy">© 2026 MAGIKID AI Lab. All rights reserved. · Castle Hill Robotics Lab</div>
 </footer>
@@ -2558,7 +2887,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </a></li>
     <li><a href="#curriculum" class="nav-item">
       <span class="nav-icon">📋</span>
-      <span>Schedule</span>
+      <span data-i18n="mob_schedule">课程表</span>
     </a></li>
     <li><a href="#stories" class="nav-item">
       <span class="nav-icon">🏆</span>
@@ -2568,8 +2897,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <span class="nav-icon">🎯</span>
       <span><span data-i18n="mob_comp">Comp</span></span>
     </a></li>
-    <li><a href="#cta" class="nav-item nav-cta-mobile">
-      立即<span data-i18n="mob_enroll">Enroll</span>
+    <li><a href="#cta" class="nav-item nav-cta-mobile" data-i18n="mob_enroll_cta">
+      立即报名
     </a></li>
   </ul>
 </nav>
