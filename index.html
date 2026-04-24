@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAGIKID AI Olympia <span data-i18n="mob_comp">Comp</span>班 | AI Elite Program</title>
+<title>MAGIKID AI Olympia Competition Class | AI Elite Program</title>
 <style>
   :root {
     --gold: #FFC107;
@@ -1271,6 +1271,7 @@ const i18n = {
   nav_students: { zh: '学生故事', en: 'Students' },
   nav_comp: { zh: '竞赛现场', en: 'Competitions' },
   nav_enroll: { zh: '立即报名', en: 'Enroll Now' },
+  page_title: { zh: 'MAGIKID AI Olympia 竞赛班 | AI Elite Program', en: 'MAGIKID AI Olympia Competition Class | AI Elite Program' },
 
   // Hero
   hero_badge: { zh: '🎓 MAGIKID 2026 精英计划', en: '🎓 MAGIKID 2026 Elite Program' },
@@ -1298,6 +1299,11 @@ const i18n = {
     zh: '2026 年课程升级，不仅对标 <strong style="color:var(--gold)">IOAI（人工智能奥林匹克）</strong>，更是一场面向全球 AI 黑客松与尖端机器人赛事的进阶之旅。我们紧跟技术浪潮，实时集成 <strong style="color:var(--cyan)">Generative AI（生成式AI）</strong>、<strong style="color:#CE93D8">Transformer 架构</strong>与<strong style="color:var(--gold)">ROS 机器人操作系统</strong>等前沿科技。',
     en: 'The 2026 curriculum upgrade targets not only <strong style="color:var(--gold)">IOAI (International AI Olympiad)</strong>, but also global AI hackathons and cutting-edge robotics competitions. We stay ahead of the tech wave, integrating <strong style="color:var(--cyan)">Generative AI</strong>, <strong style="color:#CE93D8">Transformer architecture</strong>, and <strong style="color:var(--gold)">ROS Robotics OS</strong>.'
   },
+  intro_pillar_genai: { zh: '🧠 Generative AI 生成式AI', en: '🧠 Generative AI' },
+  intro_pillar_transformer: { zh: '⚡ Transformer 架构', en: '⚡ Transformer Architecture' },
+  intro_pillar_ros: { zh: '🤖 ROS Robotics系统', en: '🤖 ROS Robotics System' },
+  intro_pillar_ioai: { zh: '🏆 IOAI 竞赛通道', en: '🏆 IOAI Competition Pathway' },
+  chip_dual: { zh: '🤖 Robotics + AI 双赛道', en: '🤖 Dual Track: Robotics + AI' },
 
   // Stats
   stat_ivy: { zh: '藤校/顶尖大学合办赛事', en: 'Ivy League / Top University Co-hosted Events' },
@@ -1641,6 +1647,10 @@ const i18n = {
   // Extra keys for hardcoded elements
   chip_global: { zh: '🌍 全球顶级竞赛', en: '🌍 Global Top Competitions' },
   chip_system: { zh: '📚 36×5 课时（180 节）完整体系', en: '📚 36×5 Classes (180 lessons) Complete System' },
+  tag_eval: { zh: '考核', en: 'Assessment' },
+  tag_full_sim: { zh: '全真模拟', en: 'Full Simulation' },
+  tag_hackathon: { zh: '黑客松', en: 'Hackathon' },
+  tag_research: { zh: '科研', en: 'Research' },
   stat3_sub: { zh: '初中 · 高中 · 大学', en: 'Middle · High School · University' },
   stat5_sub: { zh: '建议每周 1-2 次', en: 'Recommended 1-2 times/week' },
   // Overview table cell content (zh-only for switching)
@@ -1696,6 +1706,13 @@ const i18n = {
   track_a_en: { zh: '算法 & 奥林匹克竞赛', en: 'Algorithm & Olympiad Track' },
   track_b_en: { zh: '具身 AI & 机器人赛道', en: 'Embodied AI & Robotics Track' },
   track_c_en: { zh: '系统集成 & 黑客松赛道', en: 'System Integration & Hackathon Track' },
+  track_a_comp_ai_olympia: { zh: 'IRCAI 国际 AI 奥林匹克', en: 'IRCAI International AI Olympiad' },
+  track_a_comp_kaggle: { zh: 'Google 机器学习平台', en: 'Google Machine Learning Platform' },
+  track_b_comp_vex: { zh: 'VEX Robotics AI 挑战赛', en: 'VEX Robotics AI Challenge' },
+  track_b_comp_behavior: { zh: 'BEHAVIOR Challenge 具身智能赛', en: 'BEHAVIOR Embodied AI Challenge' },
+  track_c_comp_presidential: { zh: '总统杯 AI 挑战赛', en: 'Presidential AI Challenge' },
+  track_c_comp_nasa: { zh: 'NASA 国际太空应用黑客松', en: 'NASA International Space Apps Challenge' },
+  track_c_comp_zero: { zh: 'MIT/ESA 太空机器人编程', en: 'MIT/ESA Space Robotics Programming' },
   // College tags
   col_harvard: { zh: '哈佛大学', en: 'Harvard' },
   col_princeton: { zh: '普林斯顿大学', en: 'Princeton' },
@@ -1719,11 +1736,15 @@ const i18n = {
   input_city: { zh: '所在城市', en: 'City' },
 };
 
-let currentLang = 'zh';
+const initialLang = localStorage.getItem('magikid-lang') || 'zh';
+let currentLang = initialLang;
+document.documentElement.lang = initialLang === 'zh' ? 'zh-CN' : 'en';
+document.title = i18n.page_title[initialLang];
 
 function switchLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = i18n.page_title[lang];
 
   // 更新按钮状态
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1751,9 +1772,7 @@ function switchLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 恢复语言选择，默认中文
-  const saved = localStorage.getItem('magikid-lang') || 'zh';
-  switchLang(saved);
+  switchLang(initialLang);
 });
 </script>
 </head>
@@ -1770,7 +1789,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <li><a href="#competitions" data-i18n="footer_compnav_link">竞赛导航</a></li>
   </ul>
   <div class="lang-switcher">
-    <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">中文</button>
+    <button class="lang-btn active" data-lang="zh" onclick="switchLang('zh')">CN</button>
     <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
   </div>
   <a href="#cta" class="nav-cta" data-i18n="nav_enroll">立即报名 →</a>
@@ -1817,13 +1836,13 @@ document.addEventListener('DOMContentLoaded', () => {
       <strong style="color:var(--gold)">ROS 机器人操作系统</strong>等前沿科技。
     </p>
     <div class="intro-pillars-inline">
-      <div class="intro-pillar-item"><span class="emoji">🧠</span>Generative AI 生成式AI</div>
-      <div class="intro-pillar-item"><span class="emoji">⚡</span>Transformer 架构</div>
-      <div class="intro-pillar-item"><span class="emoji">🤖</span>ROS Robotics系统</div>
-      <div class="intro-pillar-item"><span class="emoji">🏆</span>IOAI 竞赛通道</div>
+      <div class="intro-pillar-item" data-i18n="intro_pillar_genai">🧠 Generative AI 生成式AI</div>
+      <div class="intro-pillar-item" data-i18n="intro_pillar_transformer">⚡ Transformer 架构</div>
+      <div class="intro-pillar-item" data-i18n="intro_pillar_ros">🤖 ROS Robotics系统</div>
+      <div class="intro-pillar-item" data-i18n="intro_pillar_ioai">🏆 IOAI 竞赛通道</div>
     </div>
     <div class="intro-highlight-bar">
-      <span class="intro-highlight-chip">🤖 Robotics + AI 双赛道</span>
+      <span class="intro-highlight-chip" data-i18n="chip_dual">🤖 Robotics + AI 双赛道</span>
       <span class="intro-highlight-chip" data-i18n="chip_global">🌍 全球顶级竞赛</span>
       <span class="intro-highlight-chip" data-i18n="chip_system">📚 36×5 课时（180 节）完整体系</span>
     </div>
@@ -2121,7 +2140,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l3_q3_alg">迁移学习；模型权重管理与版本控制</span></div>
                 <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l3_q3_rob">机器人操作系统：掌握 ROS 2 节点通讯，实现复杂系统的软硬件解耦</span></div>
-                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag eval-tag">考核</span><span class="si-desc" data-i18n="l3_q3_eval">精英考核：封闭式算法精度与硬件响应极限测试</span></div>
+                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag eval-tag" data-i18n="tag_eval">考核</span><span class="si-desc" data-i18n="l3_q3_eval">精英考核：封闭式算法精度与硬件响应极限测试</span></div>
               </div>
             </div>
           </div>
@@ -2158,7 +2177,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-title" data-i18n="l4_q3_title">IOAI 综合强化与真题复盘</div>
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L25–L30</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l4_q3_alg">多模态感知（CLIP）；强化学习基础；奥赛经典算法（图算法、动态规划）</span></div>
-                <div class="sem-item project-row"><span class="si-num">L31–L36</span><span class="si-tag contest-tag">全真模拟</span><span class="si-desc" data-i18n="l4_q3_sim">48 小时科学挑战赛 (Scientific Challenge) 模拟，撰写技术报告与海报</span></div>
+                <div class="sem-item project-row"><span class="si-num">L31–L36</span><span class="si-tag contest-tag" data-i18n="tag_full_sim">全真模拟</span><span class="si-desc" data-i18n="l4_q3_sim">48 小时科学挑战赛 (Scientific Challenge) 模拟，撰写技术报告与海报</span></div>
               </div>
             </div>
           </div>
@@ -2194,8 +2213,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-header"><span class="sem-label">Q3 · L25–L36</span><span class="sem-type type-rob">Practice</span></div>
               <div class="sem-title" data-i18n="l5_q3_title">大型黑客松与科研成果</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L25–L32</span><span class="si-tag hack-tag">黑客松</span><span class="si-desc" data-i18n="l5_q3_hack">24-48 小时极限黑客松：解决一个具身智能综合命题（如"人形机器人清理实验室"）</span></div>
-                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">科研</span><span class="si-desc" data-i18n="l5_q3_proj">科研总结：完成高质量作品集，发表学术海报或参与社区贡献</span></div>
+                <div class="sem-item"><span class="si-num">L25–L32</span><span class="si-tag hack-tag" data-i18n="tag_hackathon">黑客松</span><span class="si-desc" data-i18n="l5_q3_hack">24-48 小时极限黑客松：解决一个具身智能综合命题（如"人形机器人清理实验室"）</span></div>
+                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag" data-i18n="tag_research">科研</span><span class="si-desc" data-i18n="l5_q3_proj">科研总结：完成高质量作品集，发表学术海报或参与社区贡献</span></div>
               </div>
             </div>
           </div>
@@ -2383,12 +2402,12 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="ci-item">
                     <span class="ci-dot ci-red"></span>
                     <span class="ci-name">AI Olympia</span>
-                    <span class="ci-full">IRCAI 国际 AI 奥林匹克</span>
+                    <span class="ci-full" data-i18n="track_a_comp_ai_olympia">IRCAI 国际 AI 奥林匹克</span>
                   </div>
                   <div class="ci-item">
                     <span class="ci-dot ci-orange"></span>
                     <span class="ci-name">Kaggle</span>
-                    <span class="ci-full">Google 机器学习平台</span>
+                    <span class="ci-full" data-i18n="track_a_comp_kaggle">Google 机器学习平台</span>
                   </div>
                 </div>
               </div>
@@ -2436,12 +2455,12 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="ci-item">
                     <span class="ci-dot ci-cyan"></span>
                     <span class="ci-name">VEX AI</span>
-                    <span class="ci-full">VEX Robotics AI 挑战赛</span>
+                    <span class="ci-full" data-i18n="track_b_comp_vex">VEX Robotics AI 挑战赛</span>
                   </div>
                   <div class="ci-item">
                     <span class="ci-dot ci-cyan"></span>
                     <span class="ci-name">BEHAVIOR</span>
-                    <span class="ci-full">BEHAVIOR Challenge 具身智能赛</span>
+                    <span class="ci-full" data-i18n="track_b_comp_behavior">BEHAVIOR Challenge 具身智能赛</span>
                   </div>
                 </div>
               </div>
@@ -2509,17 +2528,17 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="ci-item">
                     <span class="ci-dot ci-gold"></span>
                     <span class="ci-name">Presidential AI</span>
-                    <span class="ci-full">总统杯 AI 挑战赛</span>
+                    <span class="ci-full" data-i18n="track_c_comp_presidential">总统杯 AI 挑战赛</span>
                   </div>
                   <div class="ci-item">
                     <span class="ci-dot ci-gold"></span>
                     <span class="ci-name">NASA Space Apps</span>
-                    <span class="ci-full">NASA 国际太空应用黑客松</span>
+                    <span class="ci-full" data-i18n="track_c_comp_nasa">NASA 国际太空应用黑客松</span>
                   </div>
                   <div class="ci-item">
                     <span class="ci-dot ci-gold"></span>
                     <span class="ci-name">Zero Robotics</span>
-                    <span class="ci-full">MIT/ESA 太空机器人编程</span>
+                    <span class="ci-full" data-i18n="track_c_comp_zero">MIT/ESA 太空机器人编程</span>
                   </div>
                 </div>
               </div>
