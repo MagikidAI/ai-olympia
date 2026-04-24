@@ -1702,6 +1702,16 @@ const i18n = {
   col_stanford: { zh: '斯坦福大学', en: 'Stanford' },
   col_yale: { zh: '耶鲁大学', en: 'Yale' },
   col_caltech: { zh: '加州理工学院', en: 'Caltech' },
+  // Prereq label & training hours
+  prereq_label: { zh: '前置课程：', en: 'Prerequisite Course: ' },
+  hours_24: { zh: '24 课时', en: '24 Training Hours' },
+  hours_18: { zh: '18 课时', en: '18 Training Hours' },
+  hours_12: { zh: '12 课时', en: '12 Training Hours' },
+  // Track C achievements
+  track_c_ach3: { zh: '<strong>8 次</strong>进入全球 Top 60', en: '<strong>8 times</strong> in World Top 60' },
+  track_c_ach4: { zh: '<strong style="color:var(--orange)">1 次</strong>进入全球 Top 10', en: '<strong style="color:var(--orange)">1 time</strong> in World Top 10' },
+  track_c_ach5: { zh: '超过 <strong>10</strong> 名学生成为重点项目实习生', en: 'Over <strong>10</strong> students became key project interns' },
+  track_c_ach6: { zh: '2025 火星项目实习生与<strong style="color:var(--cyan)">诺贝尔奖得主</strong>面对面交流', en: '2025 Mars Project interns met <strong style="color:var(--cyan)">Nobel-winning scientists</strong>' },
 
   // Input placeholders
   input_name: { zh: '孩子姓名', en: 'Student Name' },
@@ -2536,23 +2546,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
-                      <span><strong>8 times</strong> in World Top 60</span>
+                      <span data-i18n="track_c_ach3"><strong>8 次</strong>进入全球 Top 60</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-orange"></span>
-                      <span><strong style="color:var(--orange)">1 time</strong> in World Top 10</span>
+                      <span data-i18n="track_c_ach4"><strong style="color:var(--orange)">1 次</strong>进入全球 Top 10</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-purple"></span>
-                      <span>Over <strong>10</strong> students became key project interns</span>
+                      <span data-i18n="track_c_ach5">超过 <strong>10</strong> 名学生成为重点项目实习生</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-cyan"></span>
-                      <span>2025 Mars Project interns met <strong style="color:var(--cyan)">Nobel-winning scientists</strong></span>
+                      <span data-i18n="track_c_ach6">2025 火星项目实习生与<strong style="color:var(--cyan)">诺贝尔奖得主</strong>面对面交流</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
-                      <span data-i18n="track_c_ach7"><strong>2026 年：3 组Students</strong>开始启动创业Project</span>
+                      <span data-i18n="track_c_ach7"><strong>2026 年：3 组学生</strong>开始启动创业项目</span>
                     </div>
                   </div>
                 </div>
@@ -2584,14 +2594,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置Course：</span>
+              <span class="comp-prereq-label" data-i18n="prereq_label">前置课程：</span>
               <span data-i18n="ioai_prereq">Elite 1 & 2 · 深度学习 / 模型调优 / NLP & CV Algorithm</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🔥</span>
                 <span data-i18n="camp_pre_title">赛前集训营</span>
-                <span class="comp-training-hours">24 Training Hours</span>
+                <span class="comp-training-hours" data-i18n="hours_24">24 课时</span>
               </div>
               <ul class="comp-camp-list">
                 <li class="comp-camp-item"><span class="comp-camp-dot dot-red"></span><div data-i18n="camp_sci_challenge"><strong>科学挑战赛模拟（12 节）</strong><br>限时阅读前沿 AI 论文并复现算法</div></li>
@@ -2619,14 +2629,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置Course：</span>
+              <span class="comp-prereq-label" data-i18n="prereq_label">前置课程：</span>
               <span data-i18n="aio_prereq">Elite 1 & 2 · 深度学习 / 模型调优 / NLP & CV Algorithm</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🔥</span>
                 <span data-i18n="camp_pre_title">赛前集训营</span>
-                <span class="comp-training-hours">24 Training Hours</span>
+                <span class="comp-training-hours" data-i18n="hours_24">24 课时</span>
               </div>
               <ul class="comp-camp-list">
                 <li class="comp-camp-item"><span class="comp-camp-dot dot-red"></span><div data-i18n="camp_sci_challenge"><strong>科学挑战赛模拟（12 节）</strong><br>限时阅读前沿 AI 论文并复现算法</div></li>
@@ -2654,14 +2664,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置Course：</span>
+              <span class="comp-prereq-label" data-i18n="prereq_label">前置课程：</span>
               <span data-i18n="vex_prereq">Elite 1（含 ROS 2 模块）· Visionary & Elite 1</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🤖</span>
                 <span data-i18n="camp_embodied_title">具身智能集训营</span>
-                <span class="comp-training-hours">18 Training Hours</span>
+                <span class="comp-training-hours" data-i18n="hours_18">18 课时</span>
               </div>
               <ul class="comp-camp-list">
                 <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_auto"><strong>自动驾驶策略（6 节）</strong><br>视觉 SLAM 导航与 PID 闭环控制</div></li>
@@ -2689,14 +2699,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置Course：</span>
+              <span class="comp-prereq-label" data-i18n="prereq_label">前置课程：</span>
               <span data-i18n="zero_prereq">Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🚀</span>
                 <span data-i18n="camp_space_title">太空机器人 Hackathon 集训营</span>
-                <span class="comp-training-hours">12 Training Hours</span>
+                <span class="comp-training-hours" data-i18n="hours_12">12 课时</span>
               </div>
               <ul class="comp-camp-list">
                 <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_nasa"><strong>NASA 开放数据处理（4 节）</strong><br>卫星影像解析与太空遥测数据处理</div></li>
@@ -2724,14 +2734,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置Course：</span>
+              <span class="comp-prereq-label" data-i18n="prereq_label">前置课程：</span>
               <span data-i18n="behavior_prereq">Elite 1（含 ROS 2 模块）· Visionary & Elite 1</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🦾</span>
                 <span data-i18n="camp_embodied_title">具身智能集训营</span>
-                <span class="comp-training-hours">18 Training Hours</span>
+                <span class="comp-training-hours" data-i18n="hours_18">18 课时</span>
               </div>
               <ul class="comp-camp-list">
                 <li class="comp-camp-item"><span class="comp-camp-dot dot-cyan"></span><div data-i18n="camp_auto"><strong>自动驾驶策略（6 节）</strong><br>视觉 SLAM 导航与 PID 闭环控制</div></li>
@@ -2759,14 +2769,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置Course：</span>
+              <span class="comp-prereq-label" data-i18n="prereq_label">前置课程：</span>
               <span data-i18n="presidential_prereq">Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🏛️</span>
                 <span data-i18n="camp_hackathon_title">Hackathon 完整集训营</span>
-                <span class="comp-training-hours">12 Training Hours</span>
+                <span class="comp-training-hours" data-i18n="hours_12">12 课时</span>
               </div>
               <ul class="comp-camp-list">
                 <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_nasa"><strong>NASA 开放数据处理（4 节）</strong><br>卫星影像解析与太空遥测数据处理</div></li>
@@ -2794,14 +2804,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置Course：</span>
+              <span class="comp-prereq-label" data-i18n="prereq_label">前置课程：</span>
               <span data-i18n="nasa_prereq">Explorer & Elite 2 · API 集成 / LLM 微调 / 数据科学</span>
             </div>
             <div class="comp-training">
               <div class="comp-training-header">
                 <span class="icon">🌌</span>
                 <span data-i18n="camp_hackathon_title">Hackathon 完整集训营</span>
-                <span class="comp-training-hours">12 Training Hours</span>
+                <span class="comp-training-hours" data-i18n="hours_12">12 课时</span>
               </div>
               <ul class="comp-camp-list">
                 <li class="comp-camp-item"><span class="comp-camp-dot dot-gold"></span><div data-i18n="camp_nasa"><strong>NASA 开放数据处理（4 节）</strong><br>卫星影像解析与太空遥测数据处理</div></li>
@@ -2829,7 +2839,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="comp-prereq">
               <span class="comp-prereq-icon">📚</span>
-              <span class="comp-prereq-label">前置Course：</span>
+              <span class="comp-prereq-label" data-i18n="prereq_label">前置课程：</span>
               <span data-i18n="kaggle_prereq">Elite 1 · 深度学习基础 / PyTorch / 特征工程入门</span>
             </div>
             <div class="comp-training">
