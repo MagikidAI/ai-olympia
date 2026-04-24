@@ -1367,7 +1367,7 @@ const i18n = {
   track_a_name: { zh: '算法与奥赛类', en: 'Algorithm & Olympiad' },
   track_b_name: { zh: '具身智能与机器人类', en: 'Embodied AI & Robotics' },
   track_c_name: { zh: '系统集成与黑客松类', en: 'System Integration & Hackathons' },
-  bs_a_desc: { zh: '深度学习底层原理 / 模型调优 / NLP & CV Algorithm', en: 'Deep Learning Fundamentals / Model Tuning / NLP & CV Algorithms' },
+  bs_a_desc: { zh: '深度学习底层原理 / 模型调优 / NLP & CV 算法', en: 'Deep Learning Fundamentals / Model Tuning / NLP & CV Algorithms' },
   bs_b_desc: { zh: '视觉加速 / ROS 2 机器人系统 / Isaac Sim 仿真', en: 'Visual Acceleration / ROS 2 Robotics System / Isaac Sim Simulation' },
   bs_c_desc: { zh: 'API 集成 / LLM 微调 / 数据科学实践', en: 'API Integration / LLM Fine-tuning / Data Science Practice' },
   track_a_ach_title: { zh: '🏆 MAGIKID成就', en: '🏆 MAGIKID Achievements' },
@@ -1638,6 +1638,71 @@ const i18n = {
   mob_enroll_cta: { zh: '立即报名', en: 'Enroll Now' },
   mob_schedule: { zh: '课程表', en: 'Schedule' },
 
+  // Extra keys for hardcoded elements
+  chip_global: { zh: '🌍 全球顶级竞赛', en: '🌍 Global Top Competitions' },
+  chip_system: { zh: '📚 36×5 课时（180 节）完整体系', en: '📚 36×5 Classes (180 lessons) Complete System' },
+  stat3_sub: { zh: '初中 · 高中 · 大学', en: 'Middle · High School · University' },
+  stat5_sub: { zh: '建议每周 1-2 次', en: 'Recommended 1-2 times/week' },
+  // Overview table cell content (zh-only for switching)
+  lv1_focus: { zh: '🤖 机械手交互 · AI 逻辑基础', en: '🤖 Robot Hand Interaction · AI Logic Basics' },
+  lv1_q1: { zh: 'Python 算法基础<br><span class="sub">列表·字典·自动化逻辑</span>', en: 'Python Algorithm Foundation<br><span class="sub">Lists·Dicts·Automation Logic</span>' },
+  lv1_q2: { zh: '数据特征与分类<br><span class="sub">KNN·决策树·视觉分拣</span>', en: 'Data Features & Classification<br><span class="sub">KNN·Decision Trees·Visual Sorting</span>' },
+  lv1_q3: { zh: '语音指令工作台 + 综合项目<br><span class="sub sub-hack">首个 AI 机器人项目路演</span>', en: 'Voice Workstation + Capstone<br><span class="sub sub-hack">First AI Robotics Project Demo</span>' },
+  lv2_focus: { zh: '🐕 机器狗感知 · OpenCV 视觉工程', en: '🐕 Robot Dog Perception · OpenCV Vision Engineering' },
+  lv2_q1: { zh: 'OpenCV 图像处理与 GPU 加速<br><span class="sub">色彩空间·形态学·算子加速</span>', en: 'OpenCV Image Processing & GPU Acceleration<br><span class="sub">Color Space·Morphology·Operator Acceleration</span>' },
+  lv2_q2: { zh: '关键点检测与身体控制<br><span class="sub">MediaPipe·手势·视觉引导</span>', en: 'Keypoint Detection & Body Control<br><span class="sub">MediaPipe·Gesture·Visual Guidance</span>' },
+  lv2_q3: { zh: '自主导航 + 迷你黑客松<br><span class="sub sub-hack">机器狗巡逻·搜救任务</span>', en: 'Autonomous Navigation + Mini Hackathon<br><span class="sub sub-hack">Robot Dog Patrol·Search & Rescue</span>' },
+  lv3_focus: { zh: '⚡ 深度学习底层 · Jetson 边缘部署', en: '⚡ Deep Learning Foundation · Jetson Deployment' },
+  lv3_q1: { zh: '深度学习数学基础<br><span class="sub">矩阵运算·反向传播·手写神经网络</span>', en: 'Deep Learning Math Foundation<br><span class="sub">Matrix Ops·Backprop·Hand-written Neural Network</span>' },
+  lv3_q2: { zh: 'CNN 与 PyTorch 视觉识别<br><span class="sub">卷积架构·正则化·赛场目标识别</span>', en: 'CNN & PyTorch Visual Recognition<br><span class="sub">Conv Architecture·Regularization·Target Detection</span>' },
+  lv3_q3: { zh: 'ROS 2 系统集成 + 精英考核<br><span class="sub sub-eval">封闭式算法精度与硬件响应测试</span>', en: 'ROS 2 Integration + Elite Assessment<br><span class="sub sub-eval">Closed Algorithm Accuracy & Hardware Response Test</span>' },
+  lv4_focus: { zh: '🎯 AI 奥林匹克冲刺年', en: '🎯 AI Olympiad Sprint Year' },
+  lv4_q1: { zh: 'YOLO 专项 + 模拟赛（I）<br><span class="sub sub-contest">大规模目标识别挑战</span>', en: 'YOLO Special + Mock Competition (I)<br><span class="sub sub-contest">Large-scale Object Detection Challenge</span>' },
+  lv4_q2: { zh: 'NLP 与大模型 + 模拟赛（II）<br><span class="sub sub-contest">语义分析·逻辑推理挑战</span>', en: 'NLP & Large Model + Mock Competition (II)<br><span class="sub sub-contest">Semantic Analysis·Logical Reasoning Challenge</span>' },
+  lv4_q3: { zh: 'IOAI 综合强化 + 48h 全真模拟<br><span class="sub sub-contest">科学挑战赛·技术报告撰写</span>', en: 'IOAI Full Training + 48h Simulation<br><span class="sub sub-contest">Scientific Challenge·Technical Report Writing</span>' },
+  lv5_focus: { zh: '🔬 具身智能科研年', en: '🔬 Embodied Intelligence Research Year' },
+  lv5_q1: { zh: '人形机器人平衡与动力学<br><span class="sub">重心轨迹·步态模型·IMU 平衡</span>', en: 'Humanoid Balance & Dynamics<br><span class="sub">CoM Trajectory·Gait Model·IMU Balance</span>' },
+  lv5_q2: { zh: 'Isaac Sim + 强化学习<br><span class="sub">Sim-to-Real·灵巧手训练</span>', en: 'Isaac Sim + Reinforcement Learning<br><span class="sub">Sim-to-Real·Dexterous Hand Training</span>' },
+  lv5_q3: { zh: '24-48h 黑客松 + 科研成果<br><span class="sub sub-hack">具身 AI 项目·学术海报</span>', en: '24-48h Hackathon + Research Output<br><span class="sub sub-hack">Embodied AI Project·Academic Poster</span>' },
+  // Detail card cores
+  lv1_detail_core: { zh: '🤖 机械手交互 · AI 逻辑基础', en: '🤖 Robot Hand Interaction · AI Logic Basics' },
+  lv4_detail_core: { zh: '🏅 AI 奥林匹克冲刺 · IOAI 全真模拟', en: '🏅 AI Olympiad Sprint · IOAI Full Simulation' },
+  // Sem titles
+  l2_q2_title: { zh: '关键点检测与身体控制', en: 'Keypoint Detection & Body Control' },
+  l2_q3_title: { zh: '自主导航与避障', en: 'Autonomous Navigation & Obstacle Avoidance' },
+  l4_q1_title: { zh: '高级视觉与目标检测', en: 'Advanced Vision & Object Detection' },
+  l5_q3_title: { zh: '大型黑客松与科研成果', en: 'Large Hackathon & Research Output' },
+  // Si-desc items
+  l1_rob1: { zh: '机械手控制：多自由度舵机协议，基础示教与回放', en: 'Robot Hand Control: Multi-DOF servo protocol, basic teaching & playback' },
+  l1_rob2: { zh: '视觉分拣：颜色与形状识别，自动化物料搬运', en: 'Visual Sorting: Color & shape recognition, automated material handling' },
+  l1_rob3: { zh: '综合项目：语音控制工作台，人机对话精准抓取', en: 'Capstone: Voice-controlled workstation, human-robot dialogue precision grasping' },
+  l2_rob2: { zh: '动态引导：视觉追踪，机器狗响应人体动作', en: 'Dynamic Guidance: Visual tracking, robot dog responds to human motion' },
+  l2_q3_alg: { zh: '传感器融合算法；路径规划基础', en: 'Sensor Fusion Algorithm; Path Planning Basics' },
+  l2_q3_rob: { zh: '机器狗巡逻：室内自主巡检与动态避障', en: 'Robot Dog Patrol: Indoor autonomous inspection with dynamic obstacle avoidance' },
+  l2_q3_proj: { zh: '迷你黑客松：限时搜救模拟任务', en: 'Mini Hackathon: Time-limited search & rescue simulation' },
+  l3_q1_alg: { zh: '线性代数矩阵运算；反向传播微积分；手写神经网络', en: 'Linear Algebra Matrix Ops; Backprop Calculus; Hand-written Neural Network' },
+  l3_q1_rob: { zh: '边缘计算：Jetson Orin 上的 TensorRT 优化实时推理', en: 'Edge Computing: TensorRT optimization on Jetson Orin for real-time inference' },
+  l3_q3_alg: { zh: '迁移学习；模型权重管理与版本控制', en: 'Transfer Learning; Model Weight Management & Version Control' },
+  // Track achievements
+  track_a_ach1: { zh: '持续培养 <strong>美国国家 AI 队</strong>成员，赴 MIT 参加选拔训练', en: 'Continuously cultivating <strong>USA National AI Team</strong> members for MIT training' },
+  track_a_ach3: { zh: '顶尖名校录取：<strong style="color:var(--cyan)">Harvard / Princeton / Stanford / MIT / Yale</strong>', en: 'Admissions to top universities: <strong style="color:var(--cyan)">Harvard / Princeton / Stanford / MIT / Yale</strong>' },
+  track_b_ach1: { zh: '从 <strong>1000+</strong> 参赛团队中脱颖而出，与顶级科研机构同台竞技', en: 'Standing out from <strong>1000+</strong> participants, alongside top research institutions' },
+  track_b_ach2: { zh: '同台对手：华为 / NVIDIA / 斯坦福 / CMU / 清华', en: 'With: Huawei / NVIDIA / Stanford / CMU / Tsinghua' },
+  track_b_ach4: { zh: '<strong>自主举办</strong>加州理工 AI 机器人国际公开赛', en: '<strong>Self-organized</strong> Caltech AI Robotics International Open' },
+  track_b_ach5: { zh: '2025 VEX 世锦赛：<strong style="color:var(--orange)">第4名、第8名 + 创新奖</strong>', en: '2025 VEX Worlds: <strong style="color:var(--orange)">4th, 8th Place + Innovation Award</strong>' },
+  track_b_ach6: { zh: '7 支队伍与大学生同台，<strong style="color:var(--cyan)">首次晋级世界赛</strong>', en: '7 teams competing with college students, <strong style="color:var(--cyan)">first time advancing to world stage</strong>' },
+  track_c_ach1: { zh: '2026 年，<strong>4 支赛队</strong>参加总统杯 AI 挑战赛', en: 'In 2026, <strong>4 teams</strong> participated in Presidential AI Challenge' },
+  // Track en subtitles
+  track_a_en: { zh: '算法 & 奥林匹克竞赛', en: 'Algorithm & Olympiad Track' },
+  track_b_en: { zh: '具身 AI & 机器人赛道', en: 'Embodied AI & Robotics Track' },
+  track_c_en: { zh: '系统集成 & 黑客松赛道', en: 'System Integration & Hackathon Track' },
+  // College tags
+  col_harvard: { zh: '哈佛大学', en: 'Harvard' },
+  col_princeton: { zh: '普林斯顿大学', en: 'Princeton' },
+  col_stanford: { zh: '斯坦福大学', en: 'Stanford' },
+  col_yale: { zh: '耶鲁大学', en: 'Yale' },
+  col_caltech: { zh: '加州理工学院', en: 'Caltech' },
+
   // Input placeholders
   input_name: { zh: '孩子姓名', en: 'Student Name' },
   input_grade: { zh: '年龄 / 年级', en: 'Age & Grade' },
@@ -1676,11 +1741,9 @@ function switchLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 恢复语言选择
-  const saved = localStorage.getItem('magikid-lang');
-  if (saved) {
-    switchLang(saved);
-  }
+  // 恢复语言选择，默认中文
+  const saved = localStorage.getItem('magikid-lang') || 'zh';
+  switchLang(saved);
 });
 </script>
 </head>
@@ -1751,8 +1814,8 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <div class="intro-highlight-bar">
       <span class="intro-highlight-chip">🤖 Robotics + AI 双赛道</span>
-      <span class="intro-highlight-chip">🌍 Global Top Competitions</span>
-      <span class="intro-highlight-chip">📚 36×5 Classes (180 lessons) Complete System</span>
+      <span class="intro-highlight-chip" data-i18n="chip_global">🌍 全球顶级竞赛</span>
+      <span class="intro-highlight-chip" data-i18n="chip_system">📚 36×5 课时（180 节）完整体系</span>
     </div>
   </div>
 </section>
@@ -1773,7 +1836,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="stat-card">
       <div class="stat-icon">👥</div>
       <div class="stat-num">3</div>
-      <div class="stat-label"><span data-i18n="stat3_label">覆盖年龄段</span><br><span style="font-size:11px;color:var(--text-dim)">Middle · High School · University</span></div>
+      <div class="stat-label"><span data-i18n="stat3_label">覆盖年龄段</span><br><span style="font-size:11px;color:var(--text-dim)" data-i18n="stat3_sub">初中 · 高中 · 大学</span></div>
     </div>
     <div class="stat-card">
       <div class="stat-icon">📚</div>
@@ -1783,7 +1846,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="stat-card">
       <div class="stat-icon">⚡</div>
       <div class="stat-num">90'</div>
-      <div class="stat-label"><span data-i18n="stat5_label">每节课时长</span><br><span style="font-size:11px;color:var(--text-dim)">Recommended 1-2 times/week</span></div>
+      <div class="stat-label"><span data-i18n="stat5_label">每节课时长</span><br><span style="font-size:11px;color:var(--text-dim)" data-i18n="stat5_sub">建议每周 1-2 次</span></div>
     </div>
   </div>
 </section>
@@ -1878,10 +1941,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="lv-grade">Grade 8-9</span>
                   </div>
                 </td>
-                <td class="td-focus">🤖 Robot Hand Interaction · AI Logic Basics</td>
-                <td class="td-content">Python Algorithm Foundation<br><span class="sub">Lists·Dicts·Automation Logic</span></td>
-                <td class="td-content">Data Features & Classification<br><span class="sub">KNN·Decision Trees·Visual Sorting</span></td>
-                <td class="td-content">语音指令工作台 + Capstone<br><span class="sub sub-hack">首个AIRoboticsProject路演</span></td>
+                <td class="td-focus" data-i18n="lv1_focus">🤖 机械手交互 · AI 逻辑基础</td>
+                <td class="td-content" data-i18n="lv1_q1">Python 算法基础<br><span class="sub">列表·字典·自动化逻辑</span></td>
+                <td class="td-content" data-i18n="lv1_q2">数据特征与分类<br><span class="sub">KNN·决策树·视觉分拣</span></td>
+                <td class="td-content" data-i18n="lv1_q3">语音指令工作台 + 综合项目<br><span class="sub sub-hack">首个 AI 机器人项目路演</span></td>
               </tr>
               <tr class="row-lv2">
                 <td class="td-level">
@@ -1891,10 +1954,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="lv-grade">Grade 9-10</span>
                   </div>
                 </td>
-                <td class="td-focus">🐕 Robot Dog Perception · OpenCV Vision</td>
-                <td class="td-content">OpenCV图像处理与GPU加速<br><span class="sub">色彩空间·形态学·算子加速</span></td>
-                <td class="td-content">Keypoint Detection & Body Control<br><span class="sub">MediaPipe·Gesture·Visual Guidance</span></td>
-                <td class="td-content">Autonomous Navigation + Mini Hackathon<br><span class="sub sub-hack">Robot Dog Patrol·Search & Rescue</span></td>
+                <td class="td-focus" data-i18n="lv2_focus">🐕 机器狗感知 · OpenCV 视觉工程</td>
+                <td class="td-content" data-i18n="lv2_q1">OpenCV 图像处理与 GPU 加速<br><span class="sub">色彩空间·形态学·算子加速</span></td>
+                <td class="td-content" data-i18n="lv2_q2">关键点检测与身体控制<br><span class="sub">MediaPipe·手势·视觉引导</span></td>
+                <td class="td-content" data-i18n="lv2_q3">自主导航 + 迷你黑客松<br><span class="sub sub-hack">机器狗巡逻·搜救任务</span></td>
               </tr>
               <tr class="row-lv3">
                 <td class="td-level">
@@ -1904,10 +1967,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="lv-grade">Grade 10-11</span>
                   </div>
                 </td>
-                <td class="td-focus">⚡ Deep Learning Foundation · Jetson Deployment</td>
-                <td class="td-content">Deep Learning Math Foundation<br><span class="sub">Matrix Ops·Backprop·Hand-written Neural Network</span></td>
-                <td class="td-content">CNN与PyTorch视觉识别<br><span class="sub">卷积架构·正则化·赛场目标识别</span></td>
-                <td class="td-content">ROS 2系统集成 + Elite考核<br><span class="sub sub-eval">封闭Algorithm精度与硬件响应测试</span></td>
+                <td class="td-focus" data-i18n="lv3_focus">⚡ 深度学习底层 · Jetson 边缘部署</td>
+                <td class="td-content" data-i18n="lv3_q1">深度学习数学基础<br><span class="sub">矩阵运算·反向传播·手写神经网络</span></td>
+                <td class="td-content" data-i18n="lv3_q2">CNN 与 PyTorch 视觉识别<br><span class="sub">卷积架构·正则化·赛场目标识别</span></td>
+                <td class="td-content" data-i18n="lv3_q3">ROS 2 系统集成 + 精英考核<br><span class="sub sub-eval">封闭式算法精度与硬件响应测试</span></td>
               </tr>
               <tr class="row-lv4">
                 <td class="td-level">
@@ -1917,10 +1980,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="lv-grade">Grade 11-12</span>
                   </div>
                 </td>
-                <td class="td-focus">🎯 AI Olympiad Sprint Year</td>
-                <td class="td-content">YOLO Special + Mock Competition (I)<br><span class="sub sub-contest">Large-scale Object Detection Challenge</span></td>
-                <td class="td-content">NLP与大模型 + 模拟赛(II)<br><span class="sub sub-contest">语义分析·逻辑推理挑战</span></td>
-                <td class="td-content">IOAI综合强化 + 48h全真模拟<br><span class="sub sub-contest">科学挑战赛·技术报告撰写</span></td>
+                <td class="td-focus" data-i18n="lv4_focus">🎯 AI 奥林匹克冲刺年</td>
+                <td class="td-content" data-i18n="lv4_q1">YOLO 专项 + 模拟赛（I）<br><span class="sub sub-contest">大规模目标识别挑战</span></td>
+                <td class="td-content" data-i18n="lv4_q2">NLP 与大模型 + 模拟赛（II）<br><span class="sub sub-contest">语义分析·逻辑推理挑战</span></td>
+                <td class="td-content" data-i18n="lv4_q3">IOAI 综合强化 + 48h 全真模拟<br><span class="sub sub-contest">科学挑战赛·技术报告撰写</span></td>
               </tr>
               <tr class="row-lv5">
                 <td class="td-level">
@@ -1930,10 +1993,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="lv-grade">Grade 12-University</span>
                   </div>
                 </td>
-                <td class="td-focus">🔬 Embodied Intelligence Research Year</td>
-                <td class="td-content">Humanoid Balance & Dynamics<br><span class="sub">CoM Trajectory·Gait Model·IMU Balance</span></td>
-                <td class="td-content">Isaac Sim + Reinforcement Learning<br><span class="sub">Sim-to-Real·Dexterous Hand Training</span></td>
-                <td class="td-content">24-48h Hackathon + Research Output<br><span class="sub sub-hack">Embodied AI Project·Academic Poster</span></td>
+                <td class="td-focus" data-i18n="lv5_focus">🔬 具身智能科研年</td>
+                <td class="td-content" data-i18n="lv5_q1">人形机器人平衡与动力学<br><span class="sub">重心轨迹·步态模型·IMU 平衡</span></td>
+                <td class="td-content" data-i18n="lv5_q2">Isaac Sim + 强化学习<br><span class="sub">Sim-to-Real·灵巧手训练</span></td>
+                <td class="td-content" data-i18n="lv5_q3">24-48h 黑客松 + 科研成果<br><span class="sub sub-hack">具身 AI 项目·学术海报</span></td>
               </tr>
             </tbody>
           </table>
@@ -1946,7 +2009,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="level-badge lv-exp">Explorer</span>
               <span class="detail-grade">Grade 8-9</span>
             </div>
-            <div class="detail-core">🤖 Robot Hand Interaction · AI Logic Basics</div>
+            <div class="detail-core" data-i18n="lv1_detail_core">🤖 机械手交互 · AI 逻辑基础</div>
           </div>
 
           <div class="detail-semesters">
@@ -1955,7 +2018,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-title" data-i18n="l1_q1_title">Python 算法基石</div>
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L1–L9</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l1_q1_alg">AI 奥林匹克概论；Python 自动化逻辑；列表与字典的高级应用</span></div>
-                <div class="sem-item"><span class="si-num">L10–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Robot Hand Control: Multi-DOF servo protocol, basic teaching & playback</span></div>
+                <div class="sem-item"><span class="si-num">L10–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l1_rob1">机械手控制：多自由度舵机协议，基础示教与回放</span></div>
               </div>
             </div>
             <div class="sem-card">
@@ -1963,7 +2026,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-title" data-i18n="l1_q2_title">数据特征与分类算法</div>
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l1_q2_alg">统计思维；KNN 与决策树；从原始数据中提取 AI 可识别的"特征"</span></div>
-                <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Visual Sorting: Color & shape recognition, automated material handling</span></div>
+                <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l1_rob2">视觉分拣：颜色与形状识别，自动化物料搬运</span></div>
               </div>
             </div>
             <div class="sem-card">
@@ -1971,7 +2034,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-title" data-i18n="l1_q3_title">系统集成与项目开发</div>
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l1_q3_alg">语音处理（NLP 入门）与逻辑判断流</span></div>
-                <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Capstone: Voice-controlled workstation, human-robot dialogue precision grasping</span></div>
+                <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l1_rob3">综合项目：语音控制工作台，人机对话精准抓取</span></div>
                 <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">Project</span><span class="si-desc" data-i18n="l1_q3_proj">综合项目：个人首个 AI 机器人项目路演</span></div>
               </div>
             </div>
@@ -1998,19 +2061,19 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q2 · L13–L24</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">Keypoint Detection & Body Control</div>
+              <div class="sem-title" data-i18n="l2_q2_title">关键点检测与身体控制</div>
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L13–L20</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l2_q2_alg">MediaPipe 深度应用；手势与人体姿态 3D 坐标提取</span></div>
-                <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Dynamic Guidance: Visual tracking, robot dog responds to human motion</span></div>
+                <div class="sem-item"><span class="si-num">L21–L24</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l2_rob2">动态引导：视觉追踪，机器狗响应人体动作</span></div>
               </div>
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q3 · L25–L36</span><span class="sem-type type-rob">Practice</span></div>
-              <div class="sem-title">Autonomous Navigation & Obstacle Avoidance</div>
+              <div class="sem-title" data-i18n="l2_q3_title">自主导航与避障</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">Sensor Fusion Algorithm; Path Planning Basics</span></div>
-                <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Robot Dog Patrol: Indoor autonomous inspection with dynamic obstacle avoidance</span></div>
-                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">Project</span><span class="si-desc">Mini Hackathon: Time-limited search & rescue simulation</span></div>
+                <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l2_q3_alg">传感器融合算法；路径规划基础</span></div>
+                <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l2_q3_rob">机器狗巡逻：室内自主巡检与动态避障</span></div>
+                <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">Project</span><span class="si-desc" data-i18n="l2_q3_proj">迷你黑客松：限时搜救模拟任务</span></div>
               </div>
             </div>
           </div>
@@ -2030,8 +2093,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-header"><span class="sem-label">Q1 · L1–L12</span><span class="sem-type type-alg">Algorithm</span></div>
               <div class="sem-title">Deep Learning Math Foundation</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L1–L9</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">Linear Algebra Matrix Ops; Backprop Calculus; Hand-written Neural Network</span></div>
-                <div class="sem-item"><span class="si-num">L10–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc">Edge Computing: TensorRT optimization on Jetson Orin for real-time inference</span></div>
+                <div class="sem-item"><span class="si-num">L1–L9</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l3_q1_alg">线性代数矩阵运算；反向传播微积分；手写神经网络</span></div>
+                <div class="sem-item"><span class="si-num">L10–L12</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l3_q1_rob">边缘计算：Jetson Orin 上的 TensorRT 优化实时推理</span></div>
               </div>
             </div>
             <div class="sem-card">
@@ -2046,7 +2109,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="sem-header"><span class="sem-label">Q3 · L25–L36</span><span class="sem-type type-alg">Algorithm</span></div>
               <div class="sem-title" data-i18n="l3_q3_title">ROS 2 架构与系统集成</div>
               <div class="sem-items">
-                <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc">Transfer Learning; Model Weight Management & Version Control</span></div>
+                <div class="sem-item"><span class="si-num">L25–L28</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l3_q3_alg">迁移学习；模型权重管理与版本控制</span></div>
                 <div class="sem-item"><span class="si-num">L29–L32</span><span class="si-tag rob-tag">Robotics</span><span class="si-desc" data-i18n="l3_q3_rob">机器人操作系统：掌握 ROS 2 节点通讯，实现复杂系统的软硬件解耦</span></div>
                 <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag eval-tag">考核</span><span class="si-desc" data-i18n="l3_q3_eval">精英考核：封闭式算法精度与硬件响应极限测试</span></div>
               </div>
@@ -2061,12 +2124,12 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="level-badge lv-e2">Elite 2</span>
               <span class="detail-grade">Grade 11-12</span>
             </div>
-            <div class="detail-core">🏅 AI Olympiad Sprint · IOAI Full Simulation</div>
+            <div class="detail-core" data-i18n="lv4_detail_core">🏅 AI 奥林匹克冲刺 · IOAI 全真模拟</div>
           </div>
           <div class="detail-semesters">
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q1 · L1–L12</span><span class="sem-type type-alg">Algorithm</span></div>
-              <div class="sem-title">Advanced Vision & Object Detection</div>
+              <div class="sem-title" data-i18n="l4_q1_title">高级视觉与目标检测</div>
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L1–L8</span><span class="si-tag alg-tag">Algorithm</span><span class="si-desc" data-i18n="l4_q1_alg">YOLO 系列深度解析；语义分割与实例分割；针对 IOAI 赛题的特征提取策略</span></div>
                 <div class="sem-item"><span class="si-num">L9–L12</span><span class="si-tag contest-tag"><span data-i18n="mob_comp">Comp</span></span><span class="si-desc" data-i18n="l4_q1_comp">模拟赛 (I)：限定时间内完成大规模数据集的目标识别与分类任务</span></div>
@@ -2119,7 +2182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="sem-card">
               <div class="sem-header"><span class="sem-label">Q3 · L25–L36</span><span class="sem-type type-rob">Practice</span></div>
-              <div class="sem-title">Large Hackathon & Research Output</div>
+              <div class="sem-title" data-i18n="l5_q3_title">大型黑客松与科研成果</div>
               <div class="sem-items">
                 <div class="sem-item"><span class="si-num">L25–L32</span><span class="si-tag hack-tag">黑客松</span><span class="si-desc" data-i18n="l5_q3_hack">24-48 小时极限黑客松：解决一个具身智能综合命题（如"人形机器人清理实验室"）</span></div>
                 <div class="sem-item project-row"><span class="si-num">L33–L36</span><span class="si-tag proj-tag">科研</span><span class="si-desc" data-i18n="l5_q3_proj">科研总结：完成高质量作品集，发表学术海报或参与社区贡献</span></div>
@@ -2177,13 +2240,13 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="achievement-text" data-i18n="jerry_ach3">从机器人编程 → AI 赛场，跨学科综合能力的完美体现</span>
                 </div>
               </div>
-              <div class="colleges-title" data-i18n="jerry_colleges">🎓 藤校大满贯录取 · Ivy League Sweep</div>
+              <div class="colleges-title" data-i18n="jerry_colleges">🎓 藤校大满贯录取</div>
               <div class="colleges-list">
-                <span class="college-tag elite">Harvard 哈佛</span>
-                <span class="college-tag elite">Princeton 普林斯顿</span>
-                <span class="college-tag elite">Stanford 斯坦福</span>
+                <span class="college-tag elite" data-i18n="col_harvard">哈佛大学</span>
+                <span class="college-tag elite" data-i18n="col_princeton">普林斯顿大学</span>
+                <span class="college-tag elite" data-i18n="col_stanford">斯坦福大学</span>
                 <span class="college-tag elite">MIT</span>
-                <span class="college-tag elite">Yale 耶鲁</span>
+                <span class="college-tag elite" data-i18n="col_yale">耶鲁大学</span>
               </div>
             </div>
           </div>
@@ -2215,12 +2278,12 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="achievement-text" data-i18n="sophie_ach3">女生AIRobotics高手，成为 <strong>Girl Powered 女生榜样</strong></span>
                 </div>
               </div>
-              <div class="colleges-title" data-i18n="sophie_colleges">🎓 顶尖名校 Offer · Elite University Offers</div>
+              <div class="colleges-title" data-i18n="sophie_colleges">🎓 顶尖名校录取通知书</div>
               <div class="colleges-list">
-                <span class="college-tag elite">Princeton 普林斯顿</span>
-                <span class="college-tag elite">Stanford 斯坦福</span>
+                <span class="college-tag elite" data-i18n="col_princeton">普林斯顿大学</span>
+                <span class="college-tag elite" data-i18n="col_stanford">斯坦福大学</span>
                 <span class="college-tag elite">MIT</span>
-                <span class="college-tag elite">Caltech 加州理工</span>
+                <span class="college-tag elite" data-i18n="col_caltech">加州理工学院</span>
                 <span class="college-tag elite">UPenn</span>
               </div>
             </div>
@@ -2297,7 +2360,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="track-badge track-a">A</span>
                 <div class="track-info">
                   <div class="track-name" data-i18n="track_a_name">算法与奥赛类</div>
-                  <div class="track-en">Algorithm & Olympiad Track</div>
+                  <div class="track-en" data-i18n="track_a_en">算法 & 奥林匹克竞赛</div>
                 </div>
               </div>
               <div class="mr-comp">
@@ -2334,7 +2397,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="track-achieve-items">
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
-                      <span>Continuously cultivating <strong>USA National AI Team</strong> members for MIT training</span>
+                      <span data-i18n="track_a_ach1">持续培养 <strong>美国国家 AI 队</strong>成员，赴 MIT 参加选拔训练</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-red"></span>
@@ -2342,7 +2405,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-cyan"></span>
-                      <span>Admissions to top universities: <strong style="color:var(--cyan)">Harvard/Princeton/Stanford/MIT/Yale</strong></span>
+                      <span data-i18n="track_a_ach3">顶尖名校录取：<strong style="color:var(--cyan)">Harvard / Princeton / Stanford / MIT / Yale</strong></span>
                     </div>
                   </div>
                 </div>
@@ -2355,7 +2418,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="track-badge track-b">B</span>
                 <div class="track-info">
                   <div class="track-name" data-i18n="track_b_name">具身智能与机器人类</div>
-                  <div class="track-en">Embodied AI & Robotics Track</div>
+                  <div class="track-en" data-i18n="track_b_en">具身 AI & 机器人赛道</div>
                 </div>
               </div>
               <div class="mr-comp">
@@ -2387,11 +2450,11 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="track-achieve-items">
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-cyan"></span>
-                      <span>Standing out from <strong>1000+</strong> participants, alongside top research institutions</span>
+                      <span data-i18n="track_b_ach1">从 <strong>1000+</strong> 参赛团队中脱颖而出，与顶级科研机构同台竞技</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
-                      <span>With: Huawei / NVIDIA / Stanford / CMU / Tsinghua</span>
+                      <span data-i18n="track_b_ach2">同台对手：华为 / NVIDIA / 斯坦福 / CMU / 清华</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-red"></span>
@@ -2399,15 +2462,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
-                      <span><strong>Self-organized</strong> Caltech AI Robotics International Open</span>
+                      <span data-i18n="track_b_ach4"><strong>自主举办</strong>加州理工 AI 机器人国际公开赛</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-orange"></span>
-                      <span>2025 VEX Worlds: <strong style="color:var(--orange)">4th, 8th Place + Innovation Award</strong></span>
+                      <span data-i18n="track_b_ach5">2025 VEX 世锦赛：<strong style="color:var(--orange)">第4名、第8名 + 创新奖</strong></span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-cyan"></span>
-                      <span>7 teams competing with college students, <strong style="color:var(--cyan)">first time advancing to world stage</strong></span>
+                      <span data-i18n="track_b_ach6">7 支队伍与大学生同台，<strong style="color:var(--cyan)">首次晋级世界赛</strong></span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-red"></span>
@@ -2428,7 +2491,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="track-badge track-c">C</span>
                 <div class="track-info">
                   <div class="track-name" data-i18n="track_c_name">系统集成与黑客松类</div>
-                  <div class="track-en">System Integration & Hackathon Track</div>
+                  <div class="track-en" data-i18n="track_c_en">系统集成 & 黑客松赛道</div>
                 </div>
               </div>
               <div class="mr-comp">
@@ -2465,7 +2528,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="track-achieve-items">
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-gold"></span>
-                      <span>In 2026, <strong>4 teams</strong> participated in Presidential AI Challenge</span>
+                      <span data-i18n="track_c_ach1">2026 年，<strong>4 支赛队</strong>参加总统杯 AI 挑战赛</span>
                     </div>
                     <div class="track-achieve-item">
                       <span class="ta-dot ta-red"></span>
